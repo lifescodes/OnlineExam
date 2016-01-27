@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Exam</title>
+
+    <link rel="stylesheet" href="{% static 'libs/bootstrap/css/bootstrap.min.css' %}">
+    {% block custom_css %}{% endblock %}
+</head>
+<body>
+    {% include 'layout/navbar.html' %}
+
+    <div class="container">
+        {% block main_content %}{% endblock %}
+    </div>
+
+    <script src="{% static 'libs/jquery-2.2.0.min.js' %}"></script>
+    <script src="{% static 'libs/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block custom_js %}{% endblock %}
+</body>
+</html>
