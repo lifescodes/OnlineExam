@@ -1,0 +1,16 @@
+.filter{
+	
+}
+
+.hero{
+	background-image: url(../img/people-coffee-tea-meeting.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-ms-filter: blur(4px) brightness(80%);
+	-webkit-filter: blur(4px) brightness(80%);
+	-moz-filter: blur(4px) brightness(80%);
+	-o-filter: blur(4px) brightness(80%);
+	filter: blur(4px) brightness(80%);
+}
