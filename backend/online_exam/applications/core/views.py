@@ -33,6 +33,10 @@ class LoginView(FormView):
     def form_invalid(self, form):
         return HttpResponseRedirect(reverse('core:login'))
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return HttpResponseRedirect('/')
+
 
 class LogoutView(View):
     def get(self, request):
