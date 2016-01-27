@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.views.generic import CreateView
+from .forms import ExamForm
 
-# Create your views here.
+
+class ExamCreateView(CreateView):
+    form_class = ExamForm
