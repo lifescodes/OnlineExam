@@ -1,6 +1,5 @@
 from .base import *
 
-
 DEBUG = True
 
 # Database
@@ -15,5 +14,10 @@ DATABASES = {
 
 INSTALLED_APPS += [
     'debug_toolbar',
-    'django_extensions'
+    'django_extensions',
+
 ]
+
+MIDDLEWARE_CLASSES += (
+    'django_stackoverflow_trace.DjangoStackoverTraceMiddleware',
+)
