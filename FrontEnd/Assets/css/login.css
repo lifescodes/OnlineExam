@@ -1,16 +1,45 @@
-.filter{
-	
+.form-container{
+	position: absolute;
+	left: 50%;
+	top:20%;
+	width: 360px;
+	height: 400px;
+	margin-left: -175px;
+	margin-top: -65px;
 }
 
-.hero{
-	background-image: url(../img/people-coffee-tea-meeting.jpg);
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	-ms-filter: blur(4px) brightness(80%);
-	-webkit-filter: blur(4px) brightness(80%);
-	-moz-filter: blur(4px) brightness(80%);
-	-o-filter: blur(4px) brightness(80%);
-	filter: blur(4px) brightness(80%);
+.form-login{
+	margin-top: 50px;
+}
+
+.custom-input{
+	width: 92%;
+	height: 25px;
+}
+
+.btn-signin{
+	font-size: 16px;
+	width: 100%;
+	background-color: #4A8BDA;
+	cursor: pointer;
+	border: 2px solid #4A8BDA;
+}
+
+.btn-signin:hover {
+	background-color: #fff;
+	border: 2px solid #4A8BDA;
+	color: #4A8BDA;
+	transition: all 0.2 ease-in-out;
+}
+
+.custom-input:focus{
+	border-color: #4A8BDA;
+}
+
+.signin-link{
+	text-align: center;
+}
+
+.signin-link a{
+	color: #4A8BDA;
 }
