@@ -1,0 +1,5 @@
+*.pyc
+*.sublime-*
+migrations/*
+!migrations/__init__.py
+.idea/
