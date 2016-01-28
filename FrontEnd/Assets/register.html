@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="libs/Flat-Ui/css/flat-ui.min.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="libs/select2/css/select2.min.css">
+    <link rel="stylesheet" href="libs/select2-bootstrap.css">
+</head>
+<body class="hero-bg">
+    <div class="hero-bg">
+        <div class="container">
+            <div class="reg-container">
+                <div class="reg-banner">
+                    <p>Register to Join Online Exam Now</p>
+                </div>
+                <form class="form-login">
+                <!-- basic info -->
+                    <label for=""><span class="span-number">1</span><span class="span-text">Basic Information</span></label>
+                    <div class="wrap-form">
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" class="form-control custom-input" id="inputEmail3" placeholder="First Name">
+                            <input type="text" class="form-control custom-input left-input" id="inputEmail3" placeholder="Last Name">
+                        </div>
+                        <label for="">Birthday</label>
+                        <div class="form-group">
+                            <select class="form-control custom-select">
+                                <option value="" disabled selected="selected">Date</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                            <select class="form-control custom-select left-input">
+                                <option value="" disabled selected="selected">Month</option>
+                                <option value="jan">January</option>
+                                <option value="feb">February</option>
+                            </select>
+                            <input type="text" class="form-control custom-input left-input" placeholder="Year" style="width:15%">
+                        </div>
+                        <label for=""> Gender</label>
+                        <div class="form-group">
+                            <label class="radio">
+                                <input type="radio" name="gender" id="male" value="option1" data-toggle="radio" class="custom-radio" checked>
+                                <span class="icons">
+                                    <span class="icon-unchecked"></span>
+                                    <span class="icon-checked"></span>
+                                </span>
+                                    Male
+                            </label>
+                            <label class="radio left-input">
+                                <input type="radio" name="gender" id="fem" value="option1" data-toggle="radio" class="custom-radio">
+                                <span class="icons">
+                                    <span class="icon-unchecked"></span>
+                                    <span class="icon-checked"></span>
+                                </span>
+                                    Female
+                            </label>
+                    </div>
+                    
+                    </div>
+
+                <!-- Account -->
+
+                <label for=""><span class="span-number">2</span><span class="span-text">Account</span></label>
+                <div class="wrap-form">
+                    <div class="form-group" style="margin-top:10px">
+                        <input type="text" class="form-control custom-input" id="inputEmail3" placeholder="Username">
+                        <input type="email" class="form-control custom-input left-input" id="inputEmail3" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="password" class="form-control custom-input" id="inputEmail3" placeholder="Password">
+                        <input type="password" class="form-control custom-input left-input" id="inputEmail3" placeholder="Confirm Password">
+                    </div>
+                </div>
+                <!-- Contact -->
+                <label for=""><span class="span-number">3</span><span class="span-text">Contact Info (Optional)</span></label>
+                <div class="wrap-form">
+                    <div class="form-group" style="margin-top:10px">
+                        <input type="text" class="form-control custom-input" id="inputEmail3" placeholder="Phone">
+                        <input type="text" class="form-control custom-input left-input" id="inputEmail3" placeholder="Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control custom-input" id="inputEmail3" placeholder="City">
+                        <input type="text" class="form-control custom-input left-input" id="inputEmail3" placeholder="Zip Code">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default btn-register">Register</button>
+                    <p class="signin-link">Already Have Account? <a href="login.html">Login Here</a></p>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="libs/bs/js/bootstrap.min.js"></script>
+</body>
+</html>

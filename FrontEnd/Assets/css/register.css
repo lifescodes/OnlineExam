@@ -1,0 +1,113 @@
+.reg-container{
+	position: absolute;
+	left: 50%;
+	top:10%;
+	width: 680px;
+	margin-left: -340px;
+	margin-top: -20px;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 0px;
+	margin-bottom: 5%;
+}
+.hero-bg{
+	background-color: #4A8BDA;
+}
+
+.reg-container .reg-banner{
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	top: 0;
+	left: 0;
+	background-color: #1467CC;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+
+}
+
+.reg-container p{
+	display: inline-block;
+	margin-left: 2%;
+	font-size: 16px;
+}
+
+.reg-container p a{
+	color: #4A8BDA;
+}
+
+.reg-banner p{
+	color: #fff;
+	display: block;
+	text-align: center;
+	margin-top: 15px;
+	font-size: 20px;
+}
+
+.custom-input{
+	width: 40%;
+	height: 20px;
+}
+
+.custom-input:focus{
+	border-color: #4A8BDA;
+}
+
+.form-login{
+	margin-top: 18%;
+	margin-left: 5%;
+}
+
+.span-number{
+	background-color: #fff;
+    border: solid 2px #4A8BDA;
+    color: #4A8BDA;
+    height: 25px;
+    line-height: 26px;
+    position: relative;
+    text-align: center;
+    width: 25px;
+    display: inline-block;
+    border-radius: 100px;
+}
+
+.span-text{
+	margin-left: 15px;
+}
+
+.left-input{
+	margin-left: 15px;
+}
+
+.custom-select {
+	height: 40px;
+}
+
+.custom-select:focus {
+	border-color: #4A8BDA;
+}
+
+.icon-checked {
+	color: #4A8BDA !important;
+}
+
+.wrap-form {
+	margin-left: 7%;
+}
+
+.btn-register{
+	font-size: 16px;
+	width: 30%;
+	margin-left: 7%;
+	margin-top: 3%;
+	background-color: #4A8BDA;
+	cursor: pointer;
+	border: 2px solid #4A8BDA;
+}
+
+.btn-register:hover {
+	background-color: #fff;
+	border: 2px solid #4A8BDA;
+	color: #4A8BDA;
+	transition: all 0.2 ease-in-out;
+}
