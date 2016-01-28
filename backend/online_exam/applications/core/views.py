@@ -35,7 +35,8 @@ class LoginView(FormView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('core:home'))
+        return super().get(request, *args, **kwargs)
 
 
 class LogoutView(View):

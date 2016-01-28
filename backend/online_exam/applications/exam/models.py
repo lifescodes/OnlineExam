@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from applications.core.models import TimeStampedModel
 from applications.user.models import User
@@ -10,6 +11,7 @@ DIFFICULTY_CHOICES = (
 
 
 class Exam(TimeStampedModel):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=30)
     description = models.TextField()
 

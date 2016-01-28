@@ -1,0 +1,13 @@
+{% extends 'layout/base.html' %}
+
+{% block main_content %}
+    {% if not exams %}
+        No exam found, <a href="">create now.</a>
+    {% else %}
+        <ul>
+        {% for exam in exams %}
+        <li><a href="{% url 'exam:detail' exam.id %}">{{ exam.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
