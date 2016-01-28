@@ -1,6 +1,7 @@
 *.pyc
 *.sublime-*
-migrations/*
+#!migrations/
+migrations/
 !migrations/__init__.py
 .idea/
 *.sqlite3

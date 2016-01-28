@@ -1,6 +1,5 @@
 from django.db import models
 from applications.core.models import TimeStampedModel
-from applications.quiz.models import Question
 from applications.user.models import User
 
 DIFFICULTY_CHOICES = (
@@ -22,7 +21,8 @@ class Exam(TimeStampedModel):
     available_start = models.DateTimeField()
     available_end = models.DateTimeField()
 
-    questions = models.ManyToManyField(Question, related_name='questions')
+    questions = models.ManyToManyField(
+            'quiz.Question', related_name='questions')
 
     def __unicode__(self):
         return self.title
