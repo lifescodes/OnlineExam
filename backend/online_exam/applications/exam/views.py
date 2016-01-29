@@ -9,8 +9,8 @@ from .models import Exam
 
 
 class ExamCreateView(LoginRequiredMixin, CreateView):
-    # form_class = ExamForm
-    model = Exam
+    form_class = ExamForm
+    # model = Exam
     template_name = 'exam/create.html'
     success_url = '/exams/'
     # fields = ('title', 'description', 'duration', 'difficulty',
@@ -22,8 +22,10 @@ class ExamCreateView(LoginRequiredMixin, CreateView):
         return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
-        form.cleaned_data['user'] = self.request.user
-        super().form_valid(form)
+        form.instance.user = self.request.user
+        print(form.instance.user)
+        form.save()
+        return super().form_valid(form)
 
 
 class ExamListView(LoginRequiredMixin, ListView):
@@ -31,10 +33,15 @@ class ExamListView(LoginRequiredMixin, ListView):
     context_object_name = 'exams'
     model = Exam
 
+    def get(self, request, *args, **kwargs):
+        if self.request.user.is_student():
+            return HttpResponseRedirect(reverse('exams:list'))
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        if self.request.user.is_teacher():
-            return Exam.objects.filter(user=self.request.user)
-        super().get_queryset()
+        if not self.request.user.is_student():
+            return self.model.objects.filter(user=self.request.user)
+        return super().get_queryset()
 
 
 class ExamDetailView(DetailView):

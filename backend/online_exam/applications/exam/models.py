@@ -31,12 +31,12 @@ class Exam(TimeStampedModel):
     def __unicode__(self):
         return self.title
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
+    def save(self, *args, **kwargs):
         if not self.available_start:
             self.available_start = datetime.now()
         if not self.available_end and self.available_start:
             self.available_end = self.available_start + self.duration
+        super().save(*args, **kwargs)
 
 
 class ExamScore(TimeStampedModel):
