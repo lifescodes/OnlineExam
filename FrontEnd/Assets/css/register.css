@@ -1,3 +1,7 @@
+body {
+	font-family: nunitoMedium;
+}
+
 .reg-container{
 	position: absolute;
 	left: 50%;

@@ -1,4 +1,9 @@
-@font-face{
+@font-face {
 	font-family: gothamRoundedRegular;
 	src:url(../fonts/Gotham-Rounded-Medium.ttf);
+}
+
+@font-face {
+	font-family: nunitoMedium;
+	src:url(../fonts/nunito/Nunito-Medium.ttf);
 }
