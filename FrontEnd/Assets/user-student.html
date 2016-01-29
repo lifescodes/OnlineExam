@@ -14,13 +14,13 @@
 <body class="bg">
 	
 	<!-- Navbar -->
-	<nav class="navbar navbar-default my-nav navbar-static-top" role="navigation">
+	<nav class="navbar navbar-default my-nav navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
 				<span class="sr-only">Toggle navigation</span>
 				</button>
-				<a class="navbar-brand" href="#" style="padding:0px; margin-right:50px">
+				<a class="navbar-brand" href="login.html" style="padding:0px; margin-right:50px">
 					<img src="img/logo.png" width="135px" alt="">
 				</a>
 			</div>
@@ -39,7 +39,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="#">My Profile</a></li>
 							<li><a href="#">Setting</a></li>
-							<li><a href="#">Logout</a></li>
+							<li><a href="login.html">Logout</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -58,8 +58,61 @@
 	</nav>
 
 	<!-- Content -->
-	<!-- user detail -->
-	<!-- finished exams -->
+	<div class="container">
+	
+	<div class="col-md-12" style="margin-top: 10%">
+		<!-- user detail -->
+		<div class="col-md-4">
+			<div class="user-detail">
+				<img src="img/ichimatsu.jpg" >
+				<p>Ichimatsu Matsuno</p>
+				<div class="user-bio">
+				<p>Lorem ipsum.</p>
+				</div>
+			</div>
+
+
+		</div>
+
+		<!-- finished exams -->
+		<div class="col-md-8">
+			<div class="exam-list">
+				<p>3 Exams</p>
+				<hr>
+
+				<div class="exam">
+					<div class="exam-card">
+						<div class="col-sm-8 card-detail">
+								<p>Judul Ujian</p>
+						</div>
+						<div class="col-sm-4 skor">
+							<h1>70</h1>
+						</div>
+					</div>
+					<div class="exam-card">
+						<div class="col-sm-8 card-detail">
+								<p>Judul Ujian</p>
+						</div>
+						<div class="col-sm-4 skor">
+							<h1>65</h1>
+						</div>
+					</div>
+					<div class="exam-card">
+						<div class="col-sm-8 card-detail">
+								<p>Judul Ujian</p>
+						</div>
+						<div class="col-sm-4 skor">
+							<h1>80</h1>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+		
+	</div>
 	<!-- footer -->
 	
 	<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
