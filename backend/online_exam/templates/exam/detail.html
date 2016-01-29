@@ -1,0 +1,9 @@
+{% extends 'layout/base.html' %}
+
+{% block main_content %}
+    {{ exam.title }}
+    {{ exam.description }}
+    {% for q in exam.questions.all %}
+
+    {% endfor %}
+{% endblock %}

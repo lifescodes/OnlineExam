@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 
 GENDER_CHOICES = (
@@ -13,12 +13,27 @@ ROLE_CHOICES = (
 )
 
 
+class CustomUserManager(UserManager):
+    def create_superuser(self, username, email, password, **extra_fields):
+        extra_fields.setdefault('role', 0)
+        return super().create_superuser(username, email, password,
+                                        **extra_fields)
+
+
 class User(AbstractUser):
     role = models.IntegerField(choices=ROLE_CHOICES)
     display_name = models.CharField(max_length=50, null=True, blank=True)
 
+    objects = CustomUserManager()
+
     def get_display_name(self):
         return self.display_name
+
+    def is_teacher(self):
+        return self.role == 1
+
+    def is_student(self):
+        return self.role == 2
 
     def save(self, *args, **kwargs):
         if not self.display_name:

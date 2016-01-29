@@ -23,7 +23,7 @@ from applications.exam import urls as exam_urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(core_urls, namespace='core')),
-    url(r'^exam/', include(exam_urls, namespace='exam')),
+    url(r'^exams/', include(exam_urls, namespace='exams')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

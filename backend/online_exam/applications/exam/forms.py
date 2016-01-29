@@ -1,5 +1,8 @@
 from django import forms
+from .models import Exam
 
 
 class ExamForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = Exam
+        exclude = ('questions', 'user')
