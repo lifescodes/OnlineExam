@@ -6,4 +6,5 @@
     {% for q in exam.questions.all %}
 
     {% endfor %}
+    <a href="{% url 'question:add' exam.id %}"></a>
 {% endblock %}

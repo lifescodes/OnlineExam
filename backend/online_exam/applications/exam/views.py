@@ -1,4 +1,4 @@
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from vanilla import CreateView, DeleteView, ListView, DetailView
 
@@ -14,7 +14,7 @@ class ExamCreateView(LoginRequiredMixin, CreateView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_student():
-            return HttpResponseRedirect(reverse('exams:list'))
+            return HttpResponseRedirect(reverse_lazy('exams:list'))
         return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -24,7 +24,7 @@ class ExamCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         if self.request.POST.get('add_questions'):
-            return reverse('questions:new')
+            return reverse_lazy('questions:new')
         return super().get_success_url()
 
 

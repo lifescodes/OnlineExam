@@ -1,0 +1,5 @@
+{% extends 'layout/base.html' %}
+
+{% block main_content %}
+    <form action="{% url 'exams:questions:add' %}" method="post"></form>
+{% endblock %}
