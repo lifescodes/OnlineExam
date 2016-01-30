@@ -65,10 +65,17 @@
 		<div class="col-md-4">
 			<div class="user-detail">
 				<img src="img/ichimatsu.jpg" >
-				<p>Ichimatsu Matsuno</p>
-				<div class="user-bio">
-				<p>Lorem ipsum.</p>
+				<div class="user-detail-p">
+					<p>Ichimatsu Matsuno</p>
+					<p class="address">Student</p>
 				</div>
+				<hr>
+				<div class="user-bio">
+				<p>Finished Exam : <span>7</span></p> 
+				<p>Best Scor : <span>90</span></p> 
+				<p>Joined at : <span>29 january 2016</span></p> 
+				</div>
+				<button type="submit" class="btn btn-default btn-view-detail" data-toggle="modal" data-target=".bs-example-modal-sm">View Detail</button>
 			</div>
 
 
@@ -89,22 +96,6 @@
 							<h1>70</h1>
 						</div>
 					</div>
-					<div class="exam-card">
-						<div class="col-sm-8 card-detail">
-								<p>Judul Ujian</p>
-						</div>
-						<div class="col-sm-4 skor">
-							<h1>65</h1>
-						</div>
-					</div>
-					<div class="exam-card">
-						<div class="col-sm-8 card-detail">
-								<p>Judul Ujian</p>
-						</div>
-						<div class="col-sm-4 skor">
-							<h1>80</h1>
-						</div>
-					</div>
 					
 				</div>
 			</div>
@@ -114,7 +105,14 @@
 		
 	</div>
 	<!-- footer -->
-	
+
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, ea!</p>
+	    </div>
+	  </div>
+	</div>
 	<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
 	<script type="text/javascript" src="libs/Flat-Ui/js/flat-ui.min.js"></script>
 </body>
