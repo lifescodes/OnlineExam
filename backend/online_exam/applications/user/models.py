@@ -40,7 +40,7 @@ class User(AbstractUser):
             self.display_name = self.username
         super().save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.get_full_name()
 
 
@@ -58,5 +58,5 @@ class Profile(models.Model):
     zip_code = models.CharField(max_length=10)
     phone = models.CharField(max_length=20)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.get_full_name()

@@ -6,7 +6,11 @@
     {% else %}
         <ul>
         {% for exam in exams %}
-        <li><a href="{% url 'exams:detail' exam.id %}">{{ exam.title }}</a></li>
+        <li>
+            <a href="{% url 'exams:detail' exam.id %}">{{ exam.title }}</a>
+            <a href="{% url 'exams:delete' exam.id %}">delete</a>
+{#            <a href="{% url 'exams:edit' exam.id %}">edit</a>#}
+        </li>
         {% endfor %}
         </ul>
     {% endif %}

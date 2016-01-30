@@ -28,7 +28,7 @@ class Exam(TimeStampedModel):
     questions = models.ManyToManyField(
         'quiz.Question', related_name='questions')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
@@ -45,5 +45,5 @@ class ExamScore(TimeStampedModel):
     score = models.FloatField()
     duration = models.DurationField()
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s: %.2f" % (self.user.get_full_name(), self.score)
