@@ -1,11 +1,7 @@
 {% extends 'layout/base.html' %}
 
 {% block main_content %}
-    <form action="{% url 'exams:questions:create' exam_id %}" method="post"
-          class="form-horizontal">
-
-    </form>
-    <form action="" method="post" class="form-horizontal" role="form"> {% csrf_token %}
+    <form action="{% url 'exams:questions:create' exam_id %}" method="post" class="form-horizontal question-form" role="form"> {% csrf_token %}
         <div class="col-md-6 col-md-offset-2">
             <div class="form-group">
                 <textarea name="question" rows="5" class="form-control"></textarea>
@@ -53,6 +49,7 @@
 
 {% block custom_js %}
     <script>
+    var csrf = '{{ csrf_token }}';
     var multi_answer = [];
     var single_answer;
     $(document).on('change', '.answer-select[type=checkbox]', function (e) {
@@ -83,6 +80,19 @@
         }
         multi_answer = [];
         single_answer = '';
+    });
+
+    $(document).on('submit', '.question-form', function (e) {
+        e.preventDefault();
+        var t = $(this);
+        var url = t.attr('action');
+
+        var data = {};
+        t.serializeArray().map(function(x){data[x.name] = x.value;});
+        data['single_answer'] = single_answer;
+        data['multi_answer'] = multi_answer;
+        console.log(data);
+{#        $.post(url);#}
     });
     </script>
 {% endblock %}
