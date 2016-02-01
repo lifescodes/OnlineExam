@@ -1,0 +1,88 @@
+{% extends 'layout/base.html' %}
+
+{% block main_content %}
+    <form action="{% url 'exams:questions:create' exam_id %}" method="post"
+          class="form-horizontal">
+
+    </form>
+    <form action="" method="post" class="form-horizontal" role="form"> {% csrf_token %}
+        <div class="col-md-6 col-md-offset-2">
+            <div class="form-group">
+                <textarea name="question" rows="5" class="form-control"></textarea>
+                Multiple <input type="checkbox" name="multiple">
+            </div>
+
+            <div class="form-group">
+                <input type="radio" name="multi-answer-mark" value="1" class="answer-select">
+                <span>A. </span>
+                <input type="text" class="form-control" name="answer-1" class="answer-select">
+            </div>
+
+            <div class="form-group">
+                <input type="radio" name="multi-answer-mark" value="2" class="answer-select">
+                <span>B. </span>
+                <input type="text" class="form-control" name="answer-2" class="answer-select">
+            </div>
+
+            <div class="form-group">
+                <input type="radio" name="multi-answer-mark" value="3" class="answer-select">
+                <span>C. </span>
+                <input type="text" class="form-control" name="answer-3" class="answer-select">
+            </div>
+
+            <div class="form-group">
+                <input type="radio" name="multi-answer-mark" value="4" class="answer-select">
+                <span>D. </span>
+                <input type="text" class="form-control" name="answer-4">
+            </div>
+
+            <div class="form-group">
+                <input type="radio" name="multi-answer-mark" value="5" class="answer-select">
+                <span>E. </span>
+                <input type="text" class="form-control" name="answer-5">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+    var multi_answer = [];
+    var single_answer;
+    $(document).on('change', '.answer-select[type=checkbox]', function (e) {
+        var t = $(this);
+        var answer_val = t.val();
+        if (t.prop('checked')) {
+            multi_answer.push(answer_val)
+        } else {
+            multi_answer.splice(multi_answer.indexOf(answer_val), 1);
+        }
+        alert(multi_answer);
+    });
+
+    $(document).on('change', '.answer-select[type=radio]', function (e) {
+        var t = $(this);
+        single_answer = t.val();
+        alert(single_answer);
+    });
+
+    $(document).on('change', 'input[name=multiple]', function (e) {
+        var t = $(this);
+        if (t.prop('checked')) {
+            $('.answer-select[type=radio]').attr('type', 'checkbox');
+            $('.answer-select[type=checkbox]').removeAttr('checked');
+        } else {
+            $('.answer-select[type=checkbox]').attr('type', 'radio');
+            $('.answer-select[type=radio]').removeAttr('checked');
+        }
+        multi_answer = [];
+        single_answer = '';
+    });
+    </script>
+{% endblock %}

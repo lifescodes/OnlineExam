@@ -1,5 +1,7 @@
 {% extends 'layout/base.html' %}
 
 {% block main_content %}
-    <form action="{% url 'exams:questions:add' %}" method="post"></form>
+    <form action="{% url 'exams:questions:add' exam_id %}" method="post">
+        {{ form.as_p }}
+    </form>
 {% endblock %}

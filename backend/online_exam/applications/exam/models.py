@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db import models
 from applications.core.models import TimeStampedModel
 from applications.user.models import User
+from applications.core.functions import uuid_8_chars
 
 DIFFICULTY_CHOICES = (
     (1, 'Easy'),
@@ -12,7 +13,8 @@ DIFFICULTY_CHOICES = (
 
 
 class Exam(TimeStampedModel):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.CharField(primary_key=True, max_length=8, default=uuid_8_chars,
+                          editable=False)
     user = models.ForeignKey(User)
     title = models.CharField(max_length=30)
     description = models.TextField()
