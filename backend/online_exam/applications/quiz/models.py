@@ -14,6 +14,9 @@ class Question(TimeStampedModel):
     text = models.TextField()
     question_type = models.IntegerField(choices=TYPE_CHOICES)
 
+    def __str__(self):
+        return self.exam.title
+
 
 class QuestionAnswer(models.Model):
     question = models.ForeignKey(Question)

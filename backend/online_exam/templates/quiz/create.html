@@ -2,6 +2,7 @@
 
 {% block main_content %}
     <form action="{% url 'exams:questions:create' exam_id %}" method="post" class="form-horizontal question-form" role="form"> {% csrf_token %}
+        <input type="hidden" value="{{ exam_id }}" name="exam_id">
         <div class="col-md-6 col-md-offset-2">
             <div class="form-group">
                 <textarea name="question" rows="5" class="form-control"></textarea>
@@ -89,10 +90,21 @@
 
         var data = {};
         t.serializeArray().map(function(x){data[x.name] = x.value;});
-        data['single_answer'] = single_answer;
-        data['multi_answer'] = multi_answer;
-        console.log(data);
-{#        $.post(url);#}
+
+        if (multi_answer.length > 0) {
+            data['multi_answer'] = multi_answer;
+        } else if (single_answer.length > 0) {
+            data['single_answer'] = single_answer;
+        }
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            success: function (r) {
+
+            }
+        });
     });
     </script>
 {% endblock %}
