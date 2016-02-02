@@ -7,3 +7,4 @@
 | 5  | 30/01/16 | 07:30 wita | <li>mengedit halaman user profile</li> <li>modal untuk menampilkan detail user</li>|
 | 6  | 01/02/16 | 11:00 wita | <li>menyelesaikan tampilan detail user|
 | 7  | 01/02/16 | 02:00 wita | <li>membuat halaman user untuk teacher, memperbaiki halaman detail, membuat halaman edit user|
+| 8  | 02/02/16 | 12:00 wita | <li>membuat| dan mendesain halaman daftar ujian|
