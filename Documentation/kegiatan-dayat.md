@@ -5,3 +5,4 @@
 | 3  | 29/01/2016 | 09.00 | <li>membuat form membuat exam</li><li>exam id menggunakan uuid field</li>|
 | 4  | 30/01/2016 | 12.00 | <li>proses delete exam</li><li>membuat forms.py utk question</li><li>integrasi quiz app ke urls</li>|
 | 5  | 01/02/2016 | 11.00 | <li>ganti id exam menjadi 8 karakter</li><li>membuat form pertanyaan</li><li>jquery untuk interaksi form pertanyaan</li>|
+| 6  | 02/02/2016 | 14.00 | <li>membuat proses simpan question ke database</li><li>membuat proses simpan answer ke database</li>|
