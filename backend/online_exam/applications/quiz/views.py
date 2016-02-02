@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from vanilla import CreateView, TemplateView
 
-from applications.quiz.models import Question
+from applications.quiz.models import Question, QuestionAnswer
 from .forms import QuestionForm
 
 
@@ -30,5 +30,13 @@ class QuizCreateView(TemplateView):
         question = Question.objects.create(text=question_text,
                                            question_type=multiple,
                                            exam_id=request.POST.get('exam_id'))
+        question_id = question.id
+
+        for i in range(1, 6):
+            answer_text = request.POST.get('answer-'+str(i))
+            answer = QuestionAnswer.objects.create(question_id=question_id,
+                                                   text=answer_text)
+            answer.correct = str(i) in request.POST.getlist('correct_answers[]')
+            answer.save()
+
         return HttpResponse('aw')
-        # return self.get(request)
