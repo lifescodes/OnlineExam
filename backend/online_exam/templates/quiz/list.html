@@ -5,8 +5,35 @@
         <div>
         <p>{{ q.text }}</p>
         {% for answer in q.answers.all %}
-            <p>{{ answer.text }}</p>
+            <p>{{ answer.text }}
+                <input id="{{ answer.id }}" type="checkbox" class="correct-mark" {% if answer.correct %}checked{% endif %}>
+            </p>
         {% endfor %}
         </div>
     {% endfor %}
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        $(document).on('change', '.correct-mark', function (e) {
+            var t = $(this);
+            var answer_id = t.attr('id');
+            var is_correct = 0;
+
+            if (t.prop('checked')) {
+                is_correct = 1
+            }
+
+            $.post(
+                    "{% url 'exams:questions:edit' exam_id %}",
+                    {
+                        'id': answer_id, 'val': is_correct,
+                        'csrfmiddlewaretoken': "{{ csrf_token }}",
+                        'change_correct_answer': 1
+                    }, function (r) {
+                        console.log(r);
+                    }
+            );
+        });
+    </script>
 {% endblock %}

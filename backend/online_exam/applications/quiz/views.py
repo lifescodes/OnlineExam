@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.views.generic import View
 from vanilla import CreateView, TemplateView, ListView
 
 from applications.quiz.models import Question, QuestionAnswer
@@ -49,3 +50,18 @@ class QuestionListView(ListView):
     def get_queryset(self):
         exam_id = self.kwargs.get('pk')
         return Question.objects.filter(exam__id=exam_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['exam_id'] = self.kwargs.get('pk')
+        return context
+
+
+class QuestionEditView(View):
+    def post(self, request, *args, **kwargs):
+        if request.is_ajax() and request.POST.get('change_correct_answer'):
+            answer_id = request.POST.get('id')
+            answer = QuestionAnswer.objects.get(pk=answer_id)
+            answer.correct = True if request.POST.get('val') == '1' else False
+            answer.save()
+            return HttpResponse('success')
