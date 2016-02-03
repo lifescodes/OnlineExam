@@ -4,11 +4,6 @@
     {{ exam.title }}
     {{ exam.description }}
 
-    {% if exam.questions.all %}
-        {% for q in exam.questions.all %}
-
-        {% endfor %}
-    {% endif %}
-
-    <a href="{% url 'exams:questions:add' exam.id %}">add questions</a>
+    <a href="{% url 'exams:questions:add' exam.id %}">add question</a>
+    <a href="{% url 'exams:questions:list' exam.id %}">all questions</a>
 {% endblock %}

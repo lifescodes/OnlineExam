@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from vanilla import CreateView, TemplateView
+from vanilla import CreateView, TemplateView, ListView
 
 from applications.quiz.models import Question, QuestionAnswer
 from .forms import QuestionForm
@@ -40,3 +40,12 @@ class QuizCreateView(TemplateView):
             answer.save()
 
         return HttpResponse('aw')
+
+
+class QuestionListView(ListView):
+    template_name = 'quiz/list.html'
+    context_object_name = 'questions'
+
+    def get_queryset(self):
+        exam_id = self.kwargs.get('pk')
+        return Question.objects.filter(exam__id=exam_id)

@@ -19,6 +19,6 @@ class Question(TimeStampedModel):
 
 
 class QuestionAnswer(models.Model):
-    question = models.ForeignKey(Question)
+    question = models.ForeignKey(Question, related_name='answers')
     text = models.TextField()
     correct = models.BooleanField(default=False)

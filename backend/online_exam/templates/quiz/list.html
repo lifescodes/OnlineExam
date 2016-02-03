@@ -1,0 +1,12 @@
+{% extends 'layout/base.html' %}
+
+{% block main_content %}
+    {% for q in questions %}
+        <div>
+        <p>{{ q.text }}</p>
+        {% for answer in q.answers.all %}
+            <p>{{ answer.text }}</p>
+        {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
