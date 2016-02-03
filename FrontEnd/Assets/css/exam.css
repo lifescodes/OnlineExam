@@ -91,6 +91,9 @@
     padding-right: 5px;
     font-size: 12px;
     border-radius: 3px;
+    position: absolute;
+    bottom: 25px;
+    right: 150px;
 }
 
 .teacher-name {

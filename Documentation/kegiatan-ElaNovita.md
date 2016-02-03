@@ -5,6 +5,7 @@
 | 3  | 29/01/16 | 10:30 wita | <li>membuat halaman user(student)</li>|
 | 4  | 29/01/16 | 07:30 wita | <li>desain halaman user, menambahkan user detail dan daftar ujian yang pernah diikuti|
 | 5  | 30/01/16 | 07:30 wita | <li>mengedit halaman user profile</li> <li>modal untuk menampilkan detail user</li>|
-| 6  | 01/02/16 | 11:00 wita | <li>menyelesaikan tampilan detail user|
-| 7  | 01/02/16 | 02:00 wita | <li>membuat halaman user untuk teacher, memperbaiki halaman detail, membuat halaman edit user|
-| 8  | 02/02/16 | 12:00 wita | <li>membuat| dan mendesain halaman daftar ujian|
+| 6  | 01/02/16 | 11:00 wita | <li>menyelesaikan tampilan detail user</li>|
+| 7  | 01/02/16 | 02:00 wita | <li>membuat halaman user untuk teacher, memperbaiki halaman detail, membuat halaman edit user</li>|
+| 8  | 02/02/16 | 12:00 wita | <li>membuat dan mendesain halaman daftar ujian</li>|
+| 9  | 03/02/16 | 12:00 wita | <li>membuat dan mendesain halaman detail ujian</li>|
