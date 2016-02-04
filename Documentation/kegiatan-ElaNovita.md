@@ -9,3 +9,4 @@
 | 7  | 01/02/16 | 02:00 wita | <li>membuat halaman user untuk teacher, memperbaiki halaman detail, membuat halaman edit user</li>|
 | 8  | 02/02/16 | 12:00 wita | <li>membuat dan mendesain halaman daftar ujian</li>|
 | 9  | 03/02/16 | 12:00 wita | <li>membuat dan mendesain halaman detail ujian</li>|
+| 10| 03/02/16 | 11:00 wita | <li>menambah desain pada halaman detail ujian, dan meanmbahkan halaman ulang ujian</li><li>membuat dan mendesain halaman ujian</li>|
