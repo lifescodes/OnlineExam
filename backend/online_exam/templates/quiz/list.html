@@ -2,13 +2,18 @@
 
 {% block main_content %}
     {% for q in questions %}
-        <button id="edit-question">Edit</button>
         <div id="{{ q.id }}" class="question-wrappers">
-            <input class="question-text-edit" type="text" value="{{ q.text }}" style="display: none">
-            <p class="question-text">{{ q.text }}</p>
+            <p class="question-text-p">
+                <input class="question-text-edit" type="text" value="{{ q.text }}" style="display: none">
+                <span class="question-text">{{ q.text }}</span>
+                <button id="edit-question" class="btn btn-primary">Edit</button>
+            </p>
         {% for answer in q.answers.all %}
-            <p>{{ answer.text }}
-                <input id="{{ answer.id }}" type="checkbox" class="correct-mark" {% if answer.correct %}checked{% endif %}>
+            <p id="{{ answer.id }}">
+                <input type="checkbox" class="correct-mark" {% if answer.correct %}checked{% endif %}>
+                <input id="answer-text" type="text" value="{{ answer.text }}" style="display: none">
+                <span>{{ answer.text }}</span>
+                <button class="btn btn-default btn-edit-answer">E</button>
             </p>
         {% endfor %}
         </div>
@@ -24,7 +29,7 @@
 
         $(document).on('change', '.correct-mark', function (e) {
             var t = $(this);
-            var answer_id = t.attr('id');
+            var answer_id = t.parent().attr('id');
             var is_correct = 0;
 
             if (t.prop('checked')) {
@@ -46,7 +51,7 @@
         $(document).on('click', '#edit-question', function (e) {
             var t = $(this);
             question_edit = $('input.question-text-edit');
-            question_text = $('p.question-text');
+            question_text = $('span.question-text');
 
             if (t.text() == 'Edit') {
                 question_edit.show();
@@ -74,6 +79,44 @@
                     question_text.text(text);
                     question_text.show();
                     $('#edit-question').text('Edit');
+                });
+            }
+        });
+
+        $(document).on('click', '.btn-edit-answer', function (e) {
+            var t = $(this);
+            var answer_text = t.parent().find('span');
+            var answer_edit = t.parent().find('input[type=text]');
+
+            if (t.text() == 'E') {
+                answer_text.hide();
+                answer_edit.show();
+                answer_edit.focus();
+                answer_edit.select();
+                t.text('X');
+            } else if (t.text() == 'X') {
+                answer_edit.hide();
+                answer_text.show();
+                answer_edit.val(answer_text.text());
+                t.text('E');
+            }
+        });
+
+        $(document).on('keypress', 'input#answer-text', function (e) {
+            if (e.which == 13) {
+                var t = $(this);
+                var id = t.parent().attr('id');
+                $.post(url, {
+                    'id': id,
+                    'text': t.val(),
+                    'csrfmiddlewaretoken': csrf,
+                    'change_answer_text': 1
+                }, function (r) {
+                    var answer_text = t.parent().find('span');
+                    answer_text.text(t.val());
+                    t.hide();
+                    answer_text.show();
+                    $('.btn-edit-answer').text('E');
                 });
             }
         });

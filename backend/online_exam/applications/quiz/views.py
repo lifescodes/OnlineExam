@@ -74,3 +74,12 @@ class QuestionEditView(View):
             question.text = question_text
             question.save()
             return HttpResponse('success')
+
+        if request.POST.get('change_answer_text'):
+            answer_id = request.POST.get('id')
+            answer_text = request.POST.get('text')
+
+            answer = QuestionAnswer.objects.get(id=answer_id)
+            answer.text = answer_text
+            answer.save()
+            return HttpResponse('success')
