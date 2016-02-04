@@ -27,6 +27,10 @@ body {
 	background-color: #629FE9;
 }
 
+.btn-exam:focus {
+	background-color: #4A8BDA;
+}
+
 .exam-card {
 	height: 200px;
 	border-radius: 5px;

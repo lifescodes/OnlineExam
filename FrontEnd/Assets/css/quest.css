@@ -1,0 +1,32 @@
+body {
+	font-family: nunitoMedium;
+	background-color: #EDEEF0;
+}
+
+.my-nav {
+	background-color: #fff;
+}
+
+.content-wrap {
+	background-color: #fff;
+	box-shadow: 1px 6px 7px -5px #000000;
+	width: 100%;
+	height: 500px;
+	margin-top: 83px;
+	border-radius: 10px;
+	padding: 25px 10px 15px 10px;
+}
+
+.custom-bar {
+	background: #4A8BDA;
+	line-height: 12px;
+	box-shadow: none;
+}
+
+.soal {
+	margin-top: 50px;
+}
+
+.soal p{
+	font-size: 25px;
+}
