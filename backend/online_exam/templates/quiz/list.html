@@ -2,8 +2,10 @@
 
 {% block main_content %}
     {% for q in questions %}
-        <div>
-        <p>{{ q.text }}</p>
+        <button id="edit-question">Edit</button>
+        <div id="{{ q.id }}" class="question-wrappers">
+            <input class="question-text-edit" type="text" value="{{ q.text }}" style="display: none">
+            <p class="question-text">{{ q.text }}</p>
         {% for answer in q.answers.all %}
             <p>{{ answer.text }}
                 <input id="{{ answer.id }}" type="checkbox" class="correct-mark" {% if answer.correct %}checked{% endif %}>
@@ -15,6 +17,11 @@
 
 {% block custom_js %}
     <script>
+        var url = "{% url 'exams:questions:edit' exam_id %}";
+        var csrf = "{{ csrf_token }}";
+
+        var question_edit; var question_text;
+
         $(document).on('change', '.correct-mark', function (e) {
             var t = $(this);
             var answer_id = t.attr('id');
@@ -25,15 +32,50 @@
             }
 
             $.post(
-                    "{% url 'exams:questions:edit' exam_id %}",
+                    url,
                     {
                         'id': answer_id, 'val': is_correct,
-                        'csrfmiddlewaretoken': "{{ csrf_token }}",
+                        'csrfmiddlewaretoken': csrf,
                         'change_correct_answer': 1
                     }, function (r) {
                         console.log(r);
                     }
             );
+        });
+
+        $(document).on('click', '#edit-question', function (e) {
+            var t = $(this);
+            question_edit = $('input.question-text-edit');
+            question_text = $('p.question-text');
+
+            if (t.text() == 'Edit') {
+                question_edit.show();
+                question_text.hide();
+                question_edit.focus();
+                question_edit.select();
+                t.text('Cancel')
+            } else if (t.text() == 'Cancel') {
+                question_edit.hide();
+                question_text.show();
+                t.text('Edit');
+            }
+        });
+
+        $(document).on('keypress', 'input.question-text-edit', function (e) {
+            var t = $(this);
+            var id = $('.question-wrappers').attr('id');
+            if (e.which == 13) {
+                var text = t.val();
+                $.post(url, {
+                    'text': text, 'csrfmiddlewaretoken': csrf, 'id': id,
+                    'change_question_text': 1
+                }, function (r) {
+                    question_edit.hide();
+                    question_text.text(text);
+                    question_text.show();
+                    $('#edit-question').text('Edit');
+                });
+            }
         });
     </script>
 {% endblock %}

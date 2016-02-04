@@ -59,9 +59,18 @@ class QuestionListView(ListView):
 
 class QuestionEditView(View):
     def post(self, request, *args, **kwargs):
-        if request.is_ajax() and request.POST.get('change_correct_answer'):
+        if request.POST.get('change_correct_answer'):
             answer_id = request.POST.get('id')
             answer = QuestionAnswer.objects.get(pk=answer_id)
             answer.correct = True if request.POST.get('val') == '1' else False
             answer.save()
+            return HttpResponse('success')
+
+        if request.POST.get('change_question_text'):
+            question_id = request.POST.get('id')
+            question_text = request.POST.get('text')
+
+            question = Question.objects.get(id=question_id)
+            question.text = question_text
+            question.save()
             return HttpResponse('success')
