@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="libs/bs/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="libs/Flat-Ui/css/flat-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="css/quest.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
 </head>
 <body>
 	
@@ -27,12 +28,42 @@
 		<div class="row">
 			<div class="col-md-9 col-md-offset-1">
 				<div class="content-wrap">
-					<div class="col-sm-10 col-sm-offset-1">
-						<div class="progress">
+					<div class="col-sm-12 col-sm-offset-1" style="margin-bottom:40px">
+						<div class="progress my-progress">
 							<div class="progress-bar custom-bar" style="width:30%"></div>
 						</div>
 						<div class="soal">
-							<p>Soalnya adalah ini, jawaban yang benar adalah?</p>
+							<p><span>1. </span>Soalnya adalah ini, jawaban yang benar adalah?</p>
+						</div>
+						<div class="jawab">
+							<div class="col-md-5 choice">
+								<div class="select-ans"><span class="alpha">A</span> Salah</div>
+							</div>
+							<div class="col-md-5 choice">
+								<div class="select-ans"><span class="alpha">B</span> Salah</div>
+							</div>
+							<div class="col-md-5 choice">
+								<div class="select-ans"><span class="alpha">C</span> Benar</div>
+							</div>
+							<div class="col-md-5 choice">
+								<div class="select-ans"><span class="alpha">D</span> Salah</div>
+							</div>
+						</div>
+
+					</div>
+					
+					<div class="row">
+						<div class="col-md-4">
+							<button class="btn btn-navi prev">Previous</button>
+						</div>
+						<div class="col-md-4">
+							<div class="page-of">
+								<input type="text" placeholder="1">
+								<p>/20</p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<button class="btn btn-navi next">Next</button>
 						</div>
 					</div>
 				</div>
