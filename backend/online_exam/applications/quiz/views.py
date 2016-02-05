@@ -60,7 +60,7 @@ class QuestionListView(ListView):
 
 class QuestionEditView(View):
     def post(self, request, *args, **kwargs):
-        if request.POST.get('change_correct_answer'):
+        if request.POST.get('change_ correct_answer'):
             answer_id = request.POST.get('id')
             answer = QuestionAnswer.objects.get(pk=answer_id)
             answer.correct = True if request.POST.get('val') == '1' else False

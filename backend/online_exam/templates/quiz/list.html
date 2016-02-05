@@ -1,6 +1,9 @@
 {% extends 'layout/base.html' %}
 
 {% block main_content %}
+    <div>
+        <a href="{% url 'exams:questions:create' exam_id %}">add question</a>
+    </div>
     {% for q in questions %}
         <div id="{{ q.id }}" class="question-wrappers">
             <p class="question-text-p">

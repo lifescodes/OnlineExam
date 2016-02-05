@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
-from vanilla import CreateView, DeleteView, ListView, DetailView
+from vanilla import CreateView, DeleteView, ListView, DetailView, TemplateView
 
 from applications.core.views import LoginRequiredMixin
 from .forms import ExamForm
@@ -51,3 +51,15 @@ class ExamDeleteView(DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.post(request)
+
+
+class TakeExamView(TemplateView):
+    template_name = 'exam/take.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['exam'] = Exam.objects.get(id=self.kwargs.get('id'))
+        return context

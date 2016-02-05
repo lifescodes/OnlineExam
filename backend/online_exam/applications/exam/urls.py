@@ -1,5 +1,6 @@
 from django.conf.urls import url, include
-from .views import ExamListView, ExamDetailView, ExamCreateView, ExamDeleteView
+from .views import ExamListView, ExamDetailView, ExamCreateView, \
+    ExamDeleteView, TakeExamView
 from applications.quiz import urls as question_urls
 
 urlpatterns = [
@@ -9,5 +10,7 @@ urlpatterns = [
     url('^(?P<pk>[^/]+)/delete/$', ExamDeleteView.as_view(), name='delete'),
 
     url('^(?P<pk>[^/]+)/questions/',
-        include(question_urls, namespace='questions'))
+        include(question_urls, namespace='questions')),
+
+    url('^(?P<pk>[^/s]+)/take$', TakeExamView.as_view(), name='detail'),
 ]
