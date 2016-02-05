@@ -7,6 +7,7 @@
                 <input class="question-text-edit" type="text" value="{{ q.text }}" style="display: none">
                 <span class="question-text">{{ q.text }}</span>
                 <button id="edit-question" class="btn btn-primary">Edit</button>
+                <a href="{% url 'exams:questions:delete' exam_id q.id %}" class="btn btn-danger">Delete</a>
             </p>
         {% for answer in q.answers.all %}
             <p id="{{ answer.id }}">

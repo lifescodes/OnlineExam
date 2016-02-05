@@ -1,6 +1,7 @@
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse
 from django.views.generic import View
-from vanilla import CreateView, TemplateView, ListView
+from vanilla import CreateView, TemplateView, ListView, DeleteView
 
 from applications.quiz.models import Question, QuestionAnswer
 from .forms import QuestionForm
@@ -34,7 +35,7 @@ class QuizCreateView(TemplateView):
         question_id = question.id
 
         for i in range(1, 6):
-            answer_text = request.POST.get('answer-'+str(i))
+            answer_text = request.POST.get('answer-' + str(i))
             answer = QuestionAnswer.objects.create(question_id=question_id,
                                                    text=answer_text)
             answer.correct = str(i) in request.POST.getlist('correct_answers[]')
@@ -83,3 +84,16 @@ class QuestionEditView(View):
             answer.text = answer_text
             answer.save()
             return HttpResponse('success')
+
+
+class QuestionDeleteView(DeleteView):
+    def get_success_url(self):
+        return reverse_lazy('exams:questions:list',
+                            kwargs={'pk': self.kwargs.get('pk')})
+
+    def get_object(self):
+        print(self.kwargs)
+        return Question.objects.get(id=self.kwargs.get('question_id'))
+
+    def get(self, *args, **kwargs):
+        return self.post(*args, **kwargs)
