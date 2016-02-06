@@ -5,12 +5,25 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .forms import LoginForm
 from django.contrib.auth import login, logout, authenticate
+from braces.views import UserPassesTestMixin
 
 
 class LoginRequiredMixin(object):
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
+
+
+class TeacherRequiredMixin(object):
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)\
+            if request.user.is_teacher() else HttpResponseRedirect('/')
+
+
+class StudentRequiredMixin(object):
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)\
+            if request.user.is_student() else HttpResponseRedirect('/')
 
 
 class HomeView(LoginRequiredMixin, TemplateView):

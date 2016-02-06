@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from django.views.generic import View
 from vanilla import CreateView, TemplateView, ListView, DeleteView
 
+from applications.core.views import TeacherRequiredMixin
 from applications.quiz.models import Question, QuestionAnswer
 from .forms import QuestionForm
 
 
-class QuestionCreateView(CreateView):
+class QuestionCreateView(TeacherRequiredMixin, CreateView):
     form_class = QuestionForm
     template_name = 'quiz/new.html'
 

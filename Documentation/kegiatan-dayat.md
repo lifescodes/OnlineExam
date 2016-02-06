@@ -8,3 +8,4 @@
 | 6  | 02/02/2016 | 14.00 | <li>membuat proses simpan question ke database</li><li>membuat proses simpan answer ke database</li>|
 | 7  | 03/02/2016 | 11.00 | <li>menampilkan list jawaban pertanyaan</li><li>membuat proses ganti kunci jawaban</li>|
 | 8  | 04/02/2016 | 11.00 | <li>membuat proses edit teks pertanyaan</li><li>membuat proses edit teks jawaban</li>|
+| 9  | 05/02/2016 | 11.00 | <li>membuat proses hapus pertanyaan</li><li>membuat halaman ujian</li>|

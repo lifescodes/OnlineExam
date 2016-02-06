@@ -2,12 +2,13 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from vanilla import CreateView, DeleteView, ListView, DetailView, TemplateView
 
-from applications.core.views import LoginRequiredMixin
+from applications.core.views import LoginRequiredMixin, TeacherRequiredMixin, \
+    StudentRequiredMixin
 from .forms import ExamForm
 from .models import Exam
 
 
-class ExamCreateView(LoginRequiredMixin, CreateView):
+class ExamCreateView(LoginRequiredMixin, TeacherRequiredMixin, CreateView):
     form_class = ExamForm
     template_name = 'exam/new.html'
     success_url = '/exams/'
@@ -45,7 +46,7 @@ class ExamDetailView(DetailView):
     context_object_name = 'exam'
 
 
-class ExamDeleteView(DeleteView):
+class ExamDeleteView(LoginRequiredMixin, TeacherRequiredMixin, DeleteView):
     model = Exam
     success_url = reverse_lazy('exams:list')
 
@@ -53,13 +54,10 @@ class ExamDeleteView(DeleteView):
         return self.post(request)
 
 
-class TakeExamView(TemplateView):
+class TakeExamView(LoginRequiredMixin, StudentRequiredMixin,TemplateView):
     template_name = 'exam/take.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['exam'] = Exam.objects.get(id=self.kwargs.get('id'))
+        context['exam'] = Exam.objects.get(id=self.kwargs.get('pk'))
         return context
