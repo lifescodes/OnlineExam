@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="libs/Flat-Ui/css/flat-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="css/quest.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="libs/TimeCircles/inc/TimeCircles.css">
 </head>
 <body>
 	
@@ -68,10 +69,24 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-md-2" style="margin-top:100px">
+				<div class="example" data-timer="4000"></div>
+			</div>
 		</div>
 	</div>
 
 	<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
 	<script type="text/javascript" src="libs/bs/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="libs/TimeCircles/inc/TimeCircles.js"></script>
+	<script type="text/javascript">
+		$(".example").TimeCircles({start: false});
+		$(".example").TimeCircles({animation_interval: "smooth"});
+		$(".example").TimeCircles({count_past_zero: false}); 
+		$(".example").TimeCircles({circle_bg_color: "#000000"}); 
+		$(".example").TimeCircles({use_background: false}); 
+		$(".example").TimeCircles({fg_width: 0.05});
+		$(".example").TimeCircles({text_size: 0.1}); 
+
+	</script>
 </body>
 </html>

@@ -103,3 +103,7 @@ body {
 .btn-navi:hover {
 	background-color: #629FE9;
 }
+
+.finish {
+	height: 300px;
+}
