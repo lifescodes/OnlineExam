@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from vanilla import CreateView, DeleteView, ListView, DetailView, TemplateView
@@ -54,10 +55,22 @@ class ExamDeleteView(LoginRequiredMixin, TeacherRequiredMixin, DeleteView):
         return self.post(request)
 
 
-class TakeExamView(LoginRequiredMixin, StudentRequiredMixin,TemplateView):
+class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
     template_name = 'exam/take.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['exam'] = Exam.objects.get(id=self.kwargs.get('pk'))
+        context['exam'] = self.get_exam()
         return context
+
+    def get(self, request, *args, **kwargs):
+        if self.get_exam().available \
+                or (self.get_exam().available_start.now().date() <= datetime.now().date() <=
+                        self.get_exam().available_end.now().date()):
+            return super(TakeExamView, self).get(request, *args, **kwargs)
+        return HttpResponseRedirect(
+            reverse_lazy('exams:detail',
+                         kwargs={'pk': self.kwargs.get('pk')}))
+
+    def get_exam(self):
+        return Exam.objects.get(id=self.kwargs.get('pk'))
