@@ -9,3 +9,4 @@
 | 7  | 03/02/2016 | 11.00 | <li>menampilkan list jawaban pertanyaan</li><li>membuat proses ganti kunci jawaban</li>|
 | 8  | 04/02/2016 | 11.00 | <li>membuat proses edit teks pertanyaan</li><li>membuat proses edit teks jawaban</li>|
 | 9  | 05/02/2016 | 11.00 | <li>membuat proses hapus pertanyaan</li><li>membuat halaman ujian</li>|
+| 10 | 06/02/2016 | 10.00 | <li>memperbaiki permission halaman pertanyaan</li><li>menampilkan soal dan jawaban pada halaman take exam</li>|
