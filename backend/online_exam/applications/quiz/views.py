@@ -24,14 +24,23 @@ class QuizCreateView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['exam_id'] = self.kwargs.get('pk')
+        context['current_number'] = self.get_last_number() + 1
         return context
+
+    def get_last_number(self):
+        q = Question.objects.filter(exam__id=self.kwargs.get('pk')).last()
+        if not q:
+            return 0
+        return q.position
 
     def post(self, request, *args, **kwargs):
         question_text = request.POST.get('question')
         multiple = 2 if request.POST.get('multiple') else 1
+        position = request.POST.get('position')
 
         question = Question.objects.create(text=question_text,
                                            question_type=multiple,
+                                           position=position,
                                            exam_id=request.POST.get('exam_id'))
         question_id = question.id
 

@@ -12,6 +12,7 @@ TYPE_CHOICES = (
 class Question(TimeStampedModel):
     exam = models.ForeignKey(Exam)
     text = models.TextField()
+    position = models.IntegerField()
     question_type = models.IntegerField(choices=TYPE_CHOICES)
 
     def __str__(self):

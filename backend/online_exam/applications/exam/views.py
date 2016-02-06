@@ -61,6 +61,7 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['exam'] = self.get_exam()
+        context['questions'] = self.get_exam().question_set.all()
         return context
 
     def get(self, request, *args, **kwargs):

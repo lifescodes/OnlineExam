@@ -1,5 +1,20 @@
 {% extends 'layout/base.html' %}
 
 {% block main_content %}
-
+    <a href="#">Skip</a>
+{% for question in questions %}
+    <div class="well-sm">
+    <p>{{ question.text }}</p>
+    {% for answer in question.answers.all %}
+        <p>
+            <input name="answer" type="{% if question.question_type == 1 %}radio{% else %}checkbox{% endif %}">
+            {{ answer.text }}
+        </p>
+    {% endfor %}
+    </div>
+{% endfor %}
+    <div>
+        <a href="#">Finish</a>
+        <a href="#">Next</a>
+    </div>
 {% endblock %}
