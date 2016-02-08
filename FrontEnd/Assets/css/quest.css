@@ -107,3 +107,12 @@ body {
 .finish {
 	height: 300px;
 }
+
+.pilih p{
+	display: inline-block;
+	text-align: center;
+}
+
+.pilih a {
+	color: #629FE9;
+}

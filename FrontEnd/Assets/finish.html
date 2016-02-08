@@ -27,7 +27,7 @@
 	<!-- Content -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9 col-md-offset-1">
+			<div class="col-md-10 col-md-offset-1">
 				<div class="content-wrap finish">
 					<div class="col-sm-12 col-sm-offset-1" style="margin-bottom:40px">
 						<div class="progress my-progress">
@@ -35,12 +35,26 @@
 						</div>
 						<h4 style="margin-left:60px">Anda sudah menyelesaikan semua soal</h4>
 						<div class="col-md-4 col-md-offset-4">
-							<button class="btn btn-primary" style="margin-top:50px; background-color:#4A8BDA">Submit Now?</button>
+							<button class="btn btn-primary" style="margin-top:50px; background-color:#4A8BDA" data-toggle="modal" data-target=".modal-submit">Submit Now?</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	<div class="modal fade modal-submit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  <div class="modal-dialog modal-md">
+	    <div class="modal-content">	
+	    	<div class="modal-header">
+	    		<p style="text-align:center">Apakah anda yakin untuk mengumpulkan?</p>
+	    		<div class=" col-sm-8 col-sm-offset-4 pilih">
+	    			<p><a href="#">Ya /</a></p> 
+	    			<p><a href="#">Cek jawaban lagi</a></p>
+	    		</div>
+	    	</div>
+	    </div>
+	  </div>
 	</div>
 
 	<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
