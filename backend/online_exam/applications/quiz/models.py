@@ -2,6 +2,7 @@ from django.db import models
 
 from applications.core.models import TimeStampedModel
 from applications.exam.models import Exam
+from applications.user.models import User
 
 TYPE_CHOICES = (
     (1, 'Single'),
@@ -23,3 +24,9 @@ class QuestionAnswer(models.Model):
     question = models.ForeignKey(Question, related_name='answers')
     text = models.TextField()
     correct = models.BooleanField(default=False)
+
+
+class QuestionAnswerUser(TimeStampedModel):
+    question = models.ForeignKey(Question)
+    user = models.ForeignKey(User)
+    choice = models.ForeignKey(QuestionAnswer)

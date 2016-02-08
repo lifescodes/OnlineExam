@@ -3,8 +3,8 @@
 {% block main_content %}
     <a href="#">Skip</a>
 {% for question in questions %}
-    <div class="well-sm">
-    <p>{{ question.text }}</p>
+    <div class="well well-sm">
+    <p>{{ question.position }}. {{ question.text }}</p>
     {% for answer in question.answers.all %}
         <p>
             <input name="answer" type="{% if question.question_type == 1 %}radio{% else %}checkbox{% endif %}">

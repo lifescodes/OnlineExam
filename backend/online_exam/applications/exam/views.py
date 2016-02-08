@@ -1,10 +1,12 @@
 from datetime import datetime
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.views.generic import View
 from vanilla import CreateView, DeleteView, ListView, DetailView, TemplateView
 
 from applications.core.views import LoginRequiredMixin, TeacherRequiredMixin, \
     StudentRequiredMixin
+from applications.quiz.models import Question
 from .forms import ExamForm
 from .models import Exam
 
@@ -60,18 +62,34 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['exam'] = self.get_exam()
-        context['questions'] = self.get_exam().question_set.all()
+        # context['exam'] = self.get_exam()
+        context['questions'] = Question.objects.filter(exam__id=self.kwargs.get('pk')).prefetch_related('answers')
         return context
 
     def get(self, request, *args, **kwargs):
-        if self.get_exam().available \
-                or (self.get_exam().available_start.now().date() <= datetime.now().date() <=
-                        self.get_exam().available_end.now().date()):
-            return super(TakeExamView, self).get(request, *args, **kwargs)
+        exam = self.get_exam()
+        if exam.available \
+                or (exam.available_start.now().date() <= datetime.now().date() <=
+                        exam.available_end.now().date()):
+            return super().get(request, *args, **kwargs)
         return HttpResponseRedirect(
             reverse_lazy('exams:detail',
                          kwargs={'pk': self.kwargs.get('pk')}))
 
     def get_exam(self):
         return Exam.objects.get(id=self.kwargs.get('pk'))
+
+
+class TakeExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
+    def post(self):
+        if self.request.POST.get('skip'):
+            pass
+
+        if self.request.POST.get('next'):
+            pass
+
+        if self.request.POST.get('finish'):
+            pass
+
+
+# TODO:class ExamScoreView()

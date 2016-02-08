@@ -12,5 +12,6 @@ urlpatterns = [
     url('^(?P<pk>[^/]+)/questions/',
         include(question_urls, namespace='questions')),
 
-    url('^(?P<pk>[^/s]+)/take$', TakeExamView.as_view(), name='take'),
+    url('^(?P<pk>[^/s]+)/take/(?P<num>\d+)/$', TakeExamView.as_view(),
+        name='take'),
 ]
