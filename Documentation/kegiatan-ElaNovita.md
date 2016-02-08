@@ -12,3 +12,4 @@
 |10| 04/02/16 | 11:00 wita | <li>menambah desain pada halaman detail ujian, dan meanmbahkan halaman ulang ujian</li><li>membuat dan mendesain halaman ujian</li>|
 | 11| 05/02/16 | 07:00 wita | <li>mendesain halaman ujian</li>|
 | 12| 06/02/16 | 02:00 wita | <li>Mendesain halaman finish</li>|
+| 13| 08/02/16 | 02:00 wita | <li>menambah modal pada halaman finish</li><li>membuat dan mendesain halaman skor</li>|
