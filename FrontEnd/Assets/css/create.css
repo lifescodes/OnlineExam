@@ -1,0 +1,40 @@
+body {
+	font-family: nunitoMedium;
+	background-color: #EDEEF0;
+}
+
+.content {
+	background-color: #fff;
+	box-shadow: 1px 6px 7px -5px #000000;
+	width: 100%;
+	height: 100%;
+	margin-top: 83px;
+	border-radius: 10px;
+	padding: 25px 10px 15px 10px;
+}
+
+.content-detail {
+	padding: 40px 30px 30px 40px;
+	margin-bottom: 40px;
+}
+
+.durasi {
+	width: 50px;
+	display: inline-block;
+}
+
+
+.date {
+	display: inline-block;
+	width: 100%;
+}
+
+.date label {
+	display: block;
+}
+
+.custom-control {
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #fff;
+}
