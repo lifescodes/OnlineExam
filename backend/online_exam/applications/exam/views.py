@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.core.urlresolvers import reverse_lazy
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
 from django.views.generic import View
 from vanilla import CreateView, DeleteView, ListView, DetailView, TemplateView
 
@@ -62,15 +63,17 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['exam'] = self.get_exam()
-        context['questions'] = Question.objects.filter(exam__id=self.kwargs.get('pk')).prefetch_related('answers')
+        context['exam_id'] = self.kwargs.get('pk')
+        context['questions'] = Question.objects.filter(
+            exam__id=self.kwargs.get('pk')).prefetch_related('answers')
         return context
 
     def get(self, request, *args, **kwargs):
         exam = self.get_exam()
         if exam.available \
-                or (exam.available_start.now().date() <= datetime.now().date() <=
-                        exam.available_end.now().date()):
+                or (
+                        exam.available_start.now().date() <= datetime.now().date() <=
+                    exam.available_end.now().date()):
             return super().get(request, *args, **kwargs)
         return HttpResponseRedirect(
             reverse_lazy('exams:detail',
@@ -80,8 +83,19 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
         return Exam.objects.get(id=self.kwargs.get('pk'))
 
 
-class TakeExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
-    def post(self):
+class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
+    def get(self, request, pk):
+        if self.request.GET.get('get_question'):
+            position = self.request.GET.get('id')
+            question = Question.objects.get(position=position,
+                                            exam__id=self.kwargs.get('pk'))
+            answers = question.answers.all()
+            return render(request, 'exam/question.html',
+                                      {'question': question,
+                                       'answers': answers})
+            # return HttpResponse('tes')
+
+    def post(self, pk):
         if self.request.POST.get('skip'):
             pass
 
@@ -90,6 +104,5 @@ class TakeExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
 
         if self.request.POST.get('finish'):
             pass
-
 
 # TODO:class ExamScoreView()

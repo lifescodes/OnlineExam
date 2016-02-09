@@ -2,19 +2,32 @@
 
 {% block main_content %}
     <a href="#">Skip</a>
-{% for question in questions %}
-    <div class="well well-sm">
-    <p>{{ question.position }}. {{ question.text }}</p>
-    {% for answer in question.answers.all %}
-        <p>
-            <input name="answer" type="{% if question.question_type == 1 %}radio{% else %}checkbox{% endif %}">
-            {{ answer.text }}
-        </p>
-    {% endfor %}
-    </div>
-{% endfor %}
+    <div class="question-wrapper"></div>
+
     <div>
         <a href="#">Finish</a>
         <a href="#">Next</a>
     </div>
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        var csrf = "{{ csrf_token }}";
+        var exam_id = "{{ exam_id }}";
+
+        var loadQuestion = function (num) {
+            var url = "{% url 'exams:action' exam_id %}";
+            var data = {
+                'id': num,
+                'get_question': 1
+            };
+            $.get(url, data, function (r) {
+                $('.question-wrapper').html(r);
+            });
+        };
+
+        $(document).ready(function () {
+            loadQuestion(1);
+        });
+    </script>
 {% endblock %}
