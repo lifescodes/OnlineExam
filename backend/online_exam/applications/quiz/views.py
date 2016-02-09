@@ -49,6 +49,7 @@ class QuizCreateView(TemplateView):
             answer = QuestionAnswer.objects.create(question_id=question_id,
                                                    text=answer_text)
             answer.correct = str(i) in request.POST.getlist('correct_answers[]')
+            answer.choice = request.POST.get('answer-choice-' + str(i))
             answer.save()
 
         return HttpResponse('aw')

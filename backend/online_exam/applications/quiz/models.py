@@ -23,6 +23,7 @@ class Question(TimeStampedModel):
 class QuestionAnswer(models.Model):
     question = models.ForeignKey(Question, related_name='answers')
     text = models.TextField()
+    choice = models.CharField(max_length=1)
     correct = models.BooleanField(default=False)
 
 
