@@ -7,7 +7,7 @@
 
     <div>
         <a href="#">Finish</a>
-        <a href="#">Next</a>
+        <a href="javascript:;" class="submit-answer">Next</a>
     </div>
 {% endblock %}
 
@@ -15,6 +15,7 @@
     <script>
         var csrf = "{{ csrf_token }}";
         var exam_id = "{{ exam_id }}";
+        var selected_answer = [];
 
         var loadQuestion = function (num) {
             var url = "{% url 'exams:action' exam_id %}";
@@ -29,6 +30,24 @@
 
         $(document).ready(function () {
             loadQuestion(1);
+        });
+
+        $(document).on('change', 'input[name=answer]', function (e) {
+            var t = $(this);
+            if (t.attr('type') == 'checkbox') {
+                if (t.prop('checked')) {
+                    selected_answer.push(answer_val);
+                } else {
+                    selected_answer.splice(selected_answer.indexOf(t.val()), 1);
+                }
+            }
+            if (t.attr('type') == 'radio') {
+                selected_answer = [t.val()];
+            }
+        });
+
+        $(document).on('click', 'a.submit-answer', function () {
+            var t = $(this);
         });
     </script>
 {% endblock %}
