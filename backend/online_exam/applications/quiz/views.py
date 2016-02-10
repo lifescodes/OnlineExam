@@ -3,12 +3,12 @@ from django.http import HttpResponse
 from django.views.generic import View
 from vanilla import CreateView, TemplateView, ListView, DeleteView
 
-from applications.core.views import TeacherRequiredMixin
+from applications.core.views import TeacherRequiredMixin, LoginRequiredMixin
 from applications.quiz.models import Question, QuestionAnswer
 from .forms import QuestionForm
 
 
-class QuestionCreateView(TeacherRequiredMixin, CreateView):
+class QuestionCreateView(LoginRequiredMixin, TeacherRequiredMixin, CreateView):
     form_class = QuestionForm
     template_name = 'quiz/new.html'
 
@@ -18,7 +18,7 @@ class QuestionCreateView(TeacherRequiredMixin, CreateView):
         return context
 
 
-class QuizCreateView(TemplateView):
+class QuizCreateView(LoginRequiredMixin, TeacherRequiredMixin, TemplateView):
     template_name = 'quiz/create.html'
 
     def get_context_data(self, **kwargs):
@@ -55,7 +55,7 @@ class QuizCreateView(TemplateView):
         return HttpResponse('aw')
 
 
-class QuestionListView(ListView):
+class QuestionListView(LoginRequiredMixin, TeacherRequiredMixin, ListView):
     template_name = 'quiz/list.html'
     context_object_name = 'questions'
 
@@ -69,7 +69,7 @@ class QuestionListView(ListView):
         return context
 
 
-class QuestionEditView(View):
+class QuestionEditView(LoginRequiredMixin, TeacherRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         if request.POST.get('change_ correct_answer'):
             answer_id = request.POST.get('id')
@@ -97,7 +97,7 @@ class QuestionEditView(View):
             return HttpResponse('success')
 
 
-class QuestionDeleteView(DeleteView):
+class QuestionDeleteView(LoginRequiredMixin, TeacherRequiredMixin, DeleteView):
     def get_success_url(self):
         return reverse_lazy('exams:questions:list',
                             kwargs={'pk': self.kwargs.get('pk')})

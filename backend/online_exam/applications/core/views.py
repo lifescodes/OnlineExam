@@ -1,11 +1,11 @@
-from django.core.urlresolvers import reverse
-from django.views.generic import TemplateView, FormView, View
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.views.generic import View
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from .forms import LoginForm
 from django.contrib.auth import login, logout, authenticate
-from braces.views import UserPassesTestMixin
+from vanilla.views import FormView, TemplateView
+from .forms import LoginForm
 
 
 class LoginRequiredMixin(object):
@@ -56,3 +56,8 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return HttpResponseRedirect('/login/')
+
+
+class RegisterView(FormView):
+    template_name = 'register.html'
+    success_url = reverse_lazy('login')
