@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="libs/bs/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/create.css">
+</head>
+<body>
+	
+	<nav class="navbar navbar-default my-nav navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+					<span class="sr-only">Toggle navigation</span>
+					</button>
+					<a class="navbar-brand" href="login.html" style="padding:0px; margin-right:50px">
+						<img src="img/logo.png" width="135px" alt="">
+					</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse-01">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="exams.html">Home</a></li>
+						<li><a href="exams.html">Exams</a></li>
+						<li><a href="create.html">Add Exams</a></li>
+						<li><a href="#fakelink">About Us</a></li>
+						
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="img/User-icon.png" height="20px" width="20px" style="margin-right:5px" alt="">Profile <b class="caret"></b></a>
+							<span class="dropdown-arrow"></span>
+							<ul class="dropdown-menu">
+								<li><a href="user-student.html">My Profile</a></li>
+								<li><a href="#">Setting</a></li>
+								<li><a href="login.html">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-right" action="#" role="search">
+						<div class="form-group">
+							<div class="input-group">
+								<input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+								<span class="input-group-btn">
+									<button type="submit" class="btn"><span class="fui-search"></span></button>
+								</span>
+							</div>
+						</div>
+					</form>
+					</div>
+			</div>
+		</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="content content-detail">
+					<div class="form-group">
+						<label>Kategori</label>
+						<input class="form-control" placeholder="Kategori">
+					</div>
+					<div class="form-group">
+						<label>Judul</label>
+						<input class="form-control" placeholder="Judul">
+					</div>
+					<div class="form-group">
+						<label>Deskripsi</label>
+						<textarea class="form-control" rows="4" ></textarea>
+					</div>
+					<div class="form-group">
+						<label style="display:block">Durasi</label>
+						<input class="form-control durasi" placeholder="0" >
+						<label style="color:#656565">Menit</label>
+					</div>
+					<label style="display:block">Available</label>
+					<div class="form-group ava">
+						<div class="date">
+							<label>From</label>
+							<select class="custom-control">
+								<option>1</option>
+								<option>2</option>
+							</select>
+							<select class="custom-control">
+								<option>Januari</option>
+								<option>Februari</option>
+							</select>
+							<select class="custom-control">
+								<option>2015</option>
+								<option>2016</option>
+							</select>
+							
+						</div>
+						<div class="date">
+							<label>To</label>
+							<select class="custom-control">
+								<option>1</option>
+								<option>2</option>
+							</select>
+							<select class="custom-control">
+								<option>Januari</option>
+								<option>Februari</option>
+							</select>
+							<select class="custom-control">
+								<option>2015</option>
+								<option>2016</option>
+							</select>
+						</div>
+					</div>
+					<button class="btn btn-primary ">Next</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
+	<script type="text/javascript" src="libs/bs/js/bootstrap.min.js"></script>
+</body>
+</html>

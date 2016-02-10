@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="libs/normalize.css">
+	<link rel="stylesheet" href="libs/Flat-Ui/css/flat-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bs/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/user.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body class="bg">
+	
+	<!-- Navbar -->
+	<nav class="navbar navbar-default my-nav navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+					<span class="sr-only">Toggle navigation</span>
+					</button>
+					<a class="navbar-brand" href="login.html" style="padding:0px; margin-right:50px">
+						<img src="img/logo.png" width="135px" alt="">
+					</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse-01">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="exams.html">Home</a></li>
+						<li><a href="exams.html">Exams</a></li>
+						<li><a href="create.html">Add Exams</a></li>
+						<li><a href="#fakelink">About Us</a></li>
+						
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="img/User-icon.png" height="20px" width="20px" style="margin-right:5px" alt="">Profile <b class="caret"></b></a>
+							<span class="dropdown-arrow"></span>
+							<ul class="dropdown-menu">
+								<li><a href="user-student.html">My Profile</a></li>
+								<li><a href="#">Setting</a></li>
+								<li><a href="login.html">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-right" action="#" role="search">
+						<div class="form-group">
+							<div class="input-group">
+								<input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+								<span class="input-group-btn">
+									<button type="submit" class="btn"><span class="fui-search"></span></button>
+								</span>
+							</div>
+						</div>
+					</form>
+					</div>
+			</div>
+		</nav>
+
+	<!-- Content -->
+	<div class="container">
+	
+	<div class="col-md-12" style="margin-top: 10%">
+		<!-- user detail -->
+		<div class="col-md-4">
+			<div class="user-detail">
+				<img src="img/haise-sasaki.png" >
+				<div class="user-detail-p">
+					<p>Haise Sasaki</p>
+					<p class="address">Teachers</p>
+				</div>
+				<hr>
+				<div class="user-bio">
+				<p>Exam List : <span>7</span></p> 
+				<p>Joined at : <span>29 january 2016</span></p> 
+				</div>
+				<div class="btn-user-wrap">
+					<button type="submit" class="btn btn-default btn-user" data-toggle="modal" data-target=".bs-example-modal-lg">View Detail</button>
+					<button type="submit" class="btn btn-default btn-user" onclick="window.open('edit-user.html')"><a href="edit-user.html">Edit Profile</a></button>
+				</div>
+			</div>
+
+
+		</div>
+
+		<!-- finished exams -->
+		<div class="col-md-8">
+			<div class="exam-list">
+				<p>3 Exams Created</p>
+				<hr>
+
+				<div class="exam">
+					<div class="exam-card">
+						<div class="col-sm-8 card-detail">
+								<p>Judul Ujian</p>
+						</div>
+						<div class="col-sm-4 skor">
+							<h4>Students</h4>
+							<h1>15</h1>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+		
+	</div>
+	<!-- footer -->
+	
+
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<h4 class="modal-title">User Detail</h4>
+	      </div>
+	      <div class="modal-body row">
+	      	<div class="col-md-4">
+	      		<img src="img/haise-sasaki.png" class="img-edit-profile">
+	      	</div>
+	      	<div class="col-md-2">
+	      		<p>Full Name: </p>
+	      		<p>Gender: </p>
+	      		<p>Age: </p>
+	      		<p>Address: </p>
+	      		<p>City: </p>
+	      		<p>Email: </p>
+	      		<p>Phone: </p>
+	      		<p>Joined at: </p>
+	      	</div>
+	      	<div class="col-md-4">
+	      		<p>Ichimatsu Matsuno</p>
+	      		<p>Male</p>
+	      		<p>18</p>
+	      		<p>Punie</p>
+	      		<p>Mataram</p>
+	      		<p>ichi@gmail.com</p>
+	      		<p>088970876</p>
+	      		<p>24 Januari 2016</p>
+	      	</div>
+	      </div>
+	      	<div class="modal-footer">
+	              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+	        </div>
+	    </div>
+	  </div>
+	</div>
+		
+	<!-- edit-profile -->
+	
+	<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
+	<script type="text/javascript" src="libs/Flat-Ui/js/flat-ui.min.js"></script>
+</body>
+</html>
