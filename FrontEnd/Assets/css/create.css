@@ -10,7 +10,7 @@ body {
 	height: 100%;
 	margin-top: 83px;
 	border-radius: 10px;
-	padding: 25px 10px 15px 10px;
+	padding: 25px 30px 55px 30px;
 }
 
 .content-detail {
@@ -37,4 +37,10 @@ body {
 	border-radius: 5px;
 	padding: 10px;
 	background-color: #fff;
+}
+
+.form-group {
+	width: 45%;
+	display: inline-block;
+	margin-right: 30px;
 }
