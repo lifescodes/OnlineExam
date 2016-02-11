@@ -23,6 +23,10 @@ body {
 	background-color: #4A8BDA;
 }
 
+.btn-exam a {
+	color: #fff;
+}
+
 .btn-exam:hover {
 	background-color: #629FE9;
 }
