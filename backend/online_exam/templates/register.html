@@ -1,0 +1,112 @@
+{% extends 'layout/auth.html' %}
+{% load static %}
+{% block title %}Register new account{% endblock %}
+
+{% block css_page %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block body_attr %}class="hero-bg"{% endblock %}
+{% block content %}
+<div class="hero-bg">
+    <div class="container">
+        <div class="reg-container">
+            <div class="reg-banner">
+                <p>Register to Join Online Exam Now</p>
+            </div>
+            <form class="form-login" method="post" action="{% url 'core:register' %}">{% csrf_token %}
+            <!-- basic info -->
+                <label for=""><span class="span-number">1</span><span class="span-text">Basic Information</span></label>
+                <div class="wrap-form">
+                    <div class="form-group" style="margin-top:10px">
+                        <input name="first_name" type="text" class="form-control custom-input" placeholder="First Name">
+                        <input name="last_name" type="text" class="form-control custom-input left-input" placeholder="Last Name">
+                    </div>
+                    <label for="">Birthday</label>
+                    <div class="form-group">
+                        <select class="form-control custom-select select-date" name="day">
+                            <option value="" disabled selected="selected">Date</option>
+                        </select>
+                        <select class="form-control custom-select left-input select-month" name="month">
+                            <option value="" disabled selected="selected">Month</option>
+                        </select>
+                        <input name="year" type="text" class="form-control custom-input left-input" placeholder="Year" style="width:15%">
+                    </div>
+                    <label for=""> Gender</label>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" name="gender" id="male" value="M" data-toggle="radio" class="custom-radio" checked>
+                            <span class="icons" style="top: -5px">
+                                <span class="icon-unchecked"></span>
+                                <span class="icon-checked"></span>
+                            </span>
+                                Male
+                        </label>
+                        <label class="radio left-input">
+                            <input type="radio" name="gender" id="fem" value="F" data-toggle="radio" class="custom-radio">
+                            <span class="icons" style="top: -5px">
+                                <span class="icon-unchecked"></span>
+                                <span class="icon-checked"></span>
+                            </span>
+                                Female
+                        </label>
+                </div>
+
+                </div>
+
+            <!-- Account -->
+
+            <label for=""><span class="span-number">2</span><span class="span-text">Account</span></label>
+            <div class="wrap-form">
+                <div class="form-group" style="margin-top:10px">
+                    <input name="username" type="text" class="form-control custom-input" placeholder="Username">
+                    <input name="email" type="email" class="form-control custom-input left-input" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input name="passwd" type="password" class="form-control custom-input" placeholder="Password">
+                    <input name="confirm_password" type="password" class="form-control custom-input left-input" placeholder="Confirm Password">
+                </div>
+            </div>
+            <!-- Contact -->
+            <label for=""><span class="span-number">3</span><span class="span-text">Contact Info (Optional)</span></label>
+            <div class="wrap-form">
+                <div class="form-group" style="margin-top:10px">
+                    <input name="phone" type="text" class="form-control custom-input" placeholder="Phone">
+                    <input name="address" type="text" class="form-control custom-input left-input" placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <input name="city" type="text" class="form-control custom-input" placeholder="City">
+                    <input name="zip_code" type="text" class="form-control custom-input left-input" placeholder="Zip Code">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default btn-register">Register</button>
+                <p class="signin-link">Already Have Account? <a href="{% url 'core:login' %}">Login Here</a></p>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script>
+    var csrf = "{{ csrf_token }}";
+
+    $(document).ready(function () {
+        $('input[type=text]').attr('autocomplete', 'off');
+
+        for(var i=1; i<=31; i++) {
+            $('.select-date').append("<option value="+i+">"+i+"</option>")
+        }
+
+        var monthNames = [ "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December" ];
+
+        for(var m=0; m<monthNames.length; m++) {
+            $('.select-month').append("<option value="+m+">"+monthNames[m]+"</option>");
+        }
+    });
+    </script>
+{% endblock %}

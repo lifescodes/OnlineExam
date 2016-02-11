@@ -21,7 +21,7 @@ class CustomUserManager(UserManager):
 
 
 class User(AbstractUser):
-    role = models.IntegerField(choices=ROLE_CHOICES)
+    role = models.IntegerField(choices=ROLE_CHOICES, default=2)
     display_name = models.CharField(max_length=50, null=True, blank=True)
 
     objects = CustomUserManager()
@@ -52,11 +52,11 @@ class Profile(models.Model):
     birthday = models.DateField()
 
     address = models.TextField()
-    city = models.CharField(max_length=45)
-    state = models.CharField(max_length=45)
-    country = models.CharField(max_length=45)
-    zip_code = models.CharField(max_length=10)
-    phone = models.CharField(max_length=20)
+    city = models.CharField(max_length=45, blank=True, null=True)
+    state = models.CharField(max_length=45, blank=True, null=True)
+    country = models.CharField(max_length=45, blank=True, null=True)
+    zip_code = models.CharField(max_length=10, blank=True, null=True)
+    phone = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.user.get_full_name()

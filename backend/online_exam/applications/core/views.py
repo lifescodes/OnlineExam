@@ -1,3 +1,4 @@
+import datetime
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import View
 from django.utils.decorators import method_decorator
@@ -5,7 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
 from vanilla.views import FormView, TemplateView
-from .forms import LoginForm
+
+from applications.user.models import User, Profile
+from .forms import LoginForm, RegisterForm
 
 
 class LoginRequiredMixin(object):
@@ -58,6 +61,47 @@ class LogoutView(View):
         return HttpResponseRedirect('/login/')
 
 
-class RegisterView(FormView):
+class RegisterView(TemplateView):
     template_name = 'register.html'
-    success_url = reverse_lazy('login')
+
+    def post(self, request):
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+
+        day = request.POST.get('day')
+        month = request.POST.get('month')
+        year = request.POST.get('year')
+
+        gender = request.POST.get('gender')
+        username = request.POST.get('username')
+        passwd = request.POST.get('passwd')
+        print(passwd)
+
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        city = request.POST.get('city')
+        zip_code = request.POST.get('zip_code')
+
+        user = User.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            username=username
+        )
+        user.set_password(passwd)
+        user.save()
+
+        birth_date = datetime.date(int(year), int(month), int(day))
+
+        Profile.objects.create(
+            user=user,
+            gender=gender,
+            address=address,
+            city=city,
+            zip_code=zip_code,
+            phone=phone,
+            birthday=birth_date
+        )
+
+        return HttpResponseRedirect(reverse_lazy('core:login'))
