@@ -12,3 +12,5 @@
 | 10 | 06/02/2016 | 10.00 | <li>memperbaiki permission halaman pertanyaan</li><li>menampilkan soal dan jawaban pada halaman take exam</li>|
 | 11 | 08/02/2016 | 13.00 | <li>menambahkan tabel jawaban utk user</li><li>modifikasi kode utk mengurangi load query sql</li>|
 | 12 | 09/02/2016 | 14.00 | <li>load pertanyaan menggunakan AJAX</li><li>menambahkan field choice ke tabel jawaban</li>|
+| 13 | 10/02/2016 | 14.00 | <li>mengintegraiskan halaman register/li>|
+| 14 | 11/02/2016 | 14.00 | <li>membuat proses register</li> |
