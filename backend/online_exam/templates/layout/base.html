@@ -6,17 +6,21 @@
     <title>Online Exam</title>
 
     <link rel="stylesheet" href="{% static 'libs/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css">
     {% block custom_css %}{% endblock %}
 </head>
 <body>
-    {% include 'layout/navbar.html' %}
+    {% block navbar %}
+        {% include 'layout/navbar.html' %}
+    {% endblock %}
 
     <div class="container">
         {% block main_content %}{% endblock %}
     </div>
 
     <script src="{% static 'libs/jquery-2.2.0.min.js' %}"></script>
-    <script src="{% static 'libs/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/js/flat-ui.min.js"></script>1
     {% block custom_js %}{% endblock %}
 </body>
 </html>

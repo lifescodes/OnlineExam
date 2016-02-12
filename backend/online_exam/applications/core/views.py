@@ -83,25 +83,29 @@ class RegisterView(TemplateView):
         city = request.POST.get('city')
         zip_code = request.POST.get('zip_code')
 
-        user = User.objects.create(
-            first_name=first_name,
-            last_name=last_name,
-            email=email,
-            username=username
-        )
-        user.set_password(passwd)
-        user.save()
+        try:
+            user = User.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                username=username
+            )
+            user.set_password(passwd)
+            user.save()
 
-        birth_date = datetime.date(int(year), int(month), int(day))
+            birth_date = datetime.date(int(year), int(month), int(day))
 
-        Profile.objects.create(
-            user=user,
-            gender=gender,
-            address=address,
-            city=city,
-            zip_code=zip_code,
-            phone=phone,
-            birthday=birth_date
-        )
+            Profile.objects.create(
+                user=user,
+                gender=gender,
+                address=address,
+                city=city,
+                zip_code=zip_code,
+                phone=phone,
+                birthday=birth_date
+            )
 
-        return HttpResponseRedirect(reverse_lazy('core:login'))
+            return HttpResponseRedirect(reverse_lazy('core:login'))
+
+        except:
+            return self.get(request)

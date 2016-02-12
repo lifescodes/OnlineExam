@@ -93,16 +93,18 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
             return render(request, 'exam/question.html',
                                       {'question': question,
                                        'answers': answers})
-            # return HttpResponse('tes')
 
     def post(self, pk):
         if self.request.POST.get('skip'):
+            # TODO: add skipped question to session
             pass
 
-        if self.request.POST.get('next'):
+        if self.request.POST.get('answer'):
+            # TODO: save answered question to db
             pass
 
         if self.request.POST.get('finish'):
+            # TODO: finsih exam, delete session
             pass
 
 # TODO:class ExamScoreView()

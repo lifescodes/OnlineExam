@@ -1,5 +1,5 @@
 <div class="well well-sm">
-    <p>{{ question.position }}. {{ question.text }}</p>
+    <p><span class="question-number">{{ question.position }}</span>. {{ question.text }}</p>
     {% for answer in answers %}
         <p>
             <input name="answer"

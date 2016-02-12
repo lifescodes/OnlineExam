@@ -7,7 +7,7 @@
 
     <div>
         <a href="#">Finish</a>
-        <a href="javascript:;" class="submit-answer">Next</a>
+        <a href="javascript:;" class="next-question">Next</a>
     </div>
 {% endblock %}
 
@@ -46,8 +46,9 @@
             }
         });
 
-        $(document).on('click', 'a.submit-answer', function () {
-            var t = $(this);
+        $(document).on('click', 'a.next-question', function () {
+            var question_number = $('.question-number').text();
+            loadQuestion(parseInt(question_number)+1);
         });
     </script>
 {% endblock %}
