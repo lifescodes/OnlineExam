@@ -1,6 +1,9 @@
 {% extends 'layout/base.html' %}
+{% load static %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+{% endblock %}
 
 {% block main_content %}
-<h2>Home</h2>
-<a href="{% url 'core:logout' %}">Logout</a>
+
 {% endblock %}
