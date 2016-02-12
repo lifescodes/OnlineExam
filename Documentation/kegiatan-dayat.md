@@ -14,3 +14,4 @@
 | 12 | 09/02/2016 | 14.00 | <li>load pertanyaan menggunakan AJAX</li><li>menambahkan field choice ke tabel jawaban</li>|
 | 13 | 10/02/2016 | 14.00 | <li>mengintegraiskan halaman register/li>|
 | 14 | 11/02/2016 | 14.00 | <li>membuat proses register</li> |
+| 15 | 12/02/2016 | 16.00 | <li>mengintegrasikan template navbar, home, list exam </li> |
