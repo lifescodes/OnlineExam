@@ -15,3 +15,5 @@
 | 13| 08/02/16 | 02:00 wita | <li>menambah modal pada halaman finish</li><li>membuat dan mendesain halaman skor</li>|
 | 14| 09/02/16 | 11:00 wita | <li>membuat dan mendesain halaman input detail ujian</li>|
 | 15| 10/02/16 | 08:00 wita | <li>membuat dan mendesain halaman input soal</li><li>menambhakan filter ke pencarian ujian</li><li>memperbaiki desain daftar ujian yang sudah diikuti pada halaman user</li>|
+| 16| 11/02/16 | 11:00 wita | <li>mengedit form soal, menambah pilihan multiple answer</li>|
+| 17| 10/02/16 | 05:00 wita | <li>edit desain halaman detail tugas</li>|

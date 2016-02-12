@@ -4,11 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="libs/bs/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/Flat-Ui/css/flat-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css">
 	<link rel="stylesheet" type="text/css" href="css/create.css">
 </head>
 <body>
-	
+
 	<nav class="navbar navbar-default my-nav navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -25,7 +26,7 @@
 						<li><a href="exams.html">Exams</a></li>
 						<li><a href="create.html">Add Exams</a></li>
 						<li><a href="#fakelink">About Us</a></li>
-						
+
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -56,59 +57,77 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<div class="content content-detail">
-					<div class="form-group">
-						<label>Kategori</label>
-						<input class="form-control" placeholder="Kategori">
-					</div>
-					<div class="form-group">
-						<label>Judul</label>
-						<input class="form-control" placeholder="Judul">
-					</div>
-					<div class="form-group">
-						<label>Deskripsi</label>
-						<textarea class="form-control" rows="4" ></textarea>
-					</div>
-					<div class="form-group">
-						<label style="display:block">Durasi</label>
-						<input class="form-control durasi" placeholder="0" >
-						<label style="color:#656565">Menit</label>
-					</div>
-					<label style="display:block">Available</label>
-					<div class="form-group ava">
-						<div class="date">
-							<label>From</label>
-							<select class="custom-control">
-								<option>1</option>
-								<option>2</option>
-							</select>
-							<select class="custom-control">
-								<option>Januari</option>
-								<option>Februari</option>
-							</select>
-							<select class="custom-control">
-								<option>2015</option>
-								<option>2016</option>
-							</select>
-							
-						</div>
-						<div class="date">
-							<label>To</label>
-							<select class="custom-control">
-								<option>1</option>
-								<option>2</option>
-							</select>
-							<select class="custom-control">
-								<option>Januari</option>
-								<option>Februari</option>
-							</select>
-							<select class="custom-control">
-								<option>2015</option>
-								<option>2016</option>
-							</select>
+				<div class="content content-detail row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Kategori</label>
+							<input class="form-control" placeholder="Kategori">
 						</div>
 					</div>
-					<button class="btn btn-primary ">Next</button>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Judul</label>
+							<input class="form-control" placeholder="Judul">
+						</div>
+
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Deskripsi</label>
+							<textarea class="form-control" rows="4" ></textarea>
+						</div>
+
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label style="display:block">Durasi</label>
+							<input class="form-control durasi" placeholder="0" >
+							<label style="color:#656565">Menit</label>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<label style="display:block">Available</label>
+						<div class="col-md-6">
+							<div class="date">
+								<label>From</label>
+								<select class="form-control date-input">
+									<option>1</option>
+									<option>2</option>
+								</select>
+								<select class="form-control month">
+									<option>Januari</option>
+									<option>Februari</option>
+								</select>
+								<select class="form-control year">
+									<option>2015</option>
+									<option>2016</option>
+								</select>
+
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="date">
+								<label>To</label>
+								<select class="form-control date-input">
+									<option>1</option>
+									<option>2</option>
+								</select>
+								<select class="form-control month">
+									<option>Januari</option>
+									<option>Februari</option>
+								</select>
+								<select class="form-control year">
+									<option>2015</option>
+									<option>2016</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 col-md-offset-8">
+						<button class="btn btn-primary btn-next">Next</button>
+					</div>
+
 				</div>
 			</div>
 		</div>

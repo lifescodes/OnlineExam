@@ -18,7 +18,7 @@ body {
 }
 
 .content-detail {
-	padding: 40px 30px 30px 40px;
+	padding: 40px 30px 20px 40px;
 	margin-bottom: 40px;
 }
 
@@ -33,20 +33,36 @@ body {
 	width: 100%;
 }
 
+.date select {
+	display: inline-block;
+}
+
 .date label {
 	display: block;
 }
 
-.custom-control {
-	border-radius: 5px;
-	padding: 10px;
-	background-color: #fff;
+.date-input {
+	width: 55px;
+  padding: 2px;
+}
+
+.month {
+	width: 110px;
+}
+
+.year {
+	width: 90px;
 }
 
 .form-group {
-	width: 45%;
-	display: inline-block;
+	width: 100%;
 	margin-right: 5px;
+}
+
+.btn-next {
+	width: 120px;
+	padding-top: 5px;
+	margin-top: 20px;
 }
 
 .onoffswitch {
