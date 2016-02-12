@@ -1,5 +1,9 @@
 {% extends 'layout/base.html' %}
+{% load static %}
 
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/exam.css' %}">
+{% endblock %}
 {% block main_content %}
     {% if not exams %}
         No exam found, <a href="">create now.</a>
@@ -7,10 +11,58 @@
         <ul>
         {% for exam in exams %}
         <li>
-            <a href="{% url 'exams:detail' exam.id %}">{{ exam.title }}</a>
-            {% if request.user.is_teacher %}
-                <a href="{% url 'exams:delete' exam.id %}">delete</a>
-            {% endif %}
+            <div class="content-wrap">
+		<div class="container">
+			<div class="col-md-10 col-md-offset-1 filter-wrap">
+				<div class="col-md-12">
+					<div class="col-md-11" style="padding:0">
+						<input type="text" class="my-filter-input" placeholder="Search Anything...">
+					</div>
+					<div class="col-md-1" style="padding:0">
+						<select class="filter-type">
+							<option>All</option>
+							<option>Kategori</option>
+							<option>Ujian</option>
+							<option>Teacher</option>
+						</select>
+					</div>
+				</div>
+				<div class="card-wrap">
+
+						<div class="col-md-6">
+							<div class="exam-cards">
+								<div class="exam-detail">
+									<p class="category">Android</p>
+									<p class="exam-title">Reverse Engineering</p>
+									<p class="teacher-name"><i class="fa fa-user"></i> Nama guru</p>
+									<p class="posted"><i class="fa fa-calendar"></i> 21-11-2015</p>
+									<p class="status">Available</p>
+								</div>
+								<div class="exam-level">
+									<p class="level">Medium</p>
+									<a href="exam-detail.html" class="take-exam">See Detail</a>
+									<!-- <p class="status">Available</p> -->
+								</div>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="exam-cards">
+								<div class="exam-detail"></div>
+								<div class="exam-level"></div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="exam-cards">
+								<div class="exam-detail"></div>
+								<div class="exam-level"></div>
+							</div>
+						</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
         </li>
         {% endfor %}
         </ul>

@@ -1,14 +1,15 @@
 import datetime
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
-from vanilla.views import FormView, TemplateView
+from vanilla.views import FormView
 
+from applications.exam.models import Exam
 from applications.user.models import User, Profile
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm
 
 
 class LoginRequiredMixin(object):
@@ -31,6 +32,18 @@ class StudentRequiredMixin(object):
 
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        exams = self.get_exams()
+        context['exams'] = exams
+        return context
+
+    def get_exams(self):
+        user = self.request.user
+        if user.is_teacher():
+            return Exam.objects.filter(user=user)
+        return Exam.objects.all()
 
 
 class LoginView(FormView):
