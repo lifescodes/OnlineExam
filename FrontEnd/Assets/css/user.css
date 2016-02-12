@@ -86,11 +86,15 @@ hr {
 
 .exam-card {
 	display: inline-block;
-	height: 120px;
+	height: 150px;
 	width: 48%;
 	background-color: #EDEEF0;
 	margin-bottom: 10px;
 	margin-left: 10px;
+}
+
+.exam-card:hover {
+	cursor: pointer;
 }
 
 .card-detail {
@@ -198,4 +202,41 @@ hr {
 	width: 40%;
 	margin-bottom: 5px;
 	display: inline-block;
+}
+
+.category {
+	padding: 0px;
+    font-size: 12px;
+    color: #ADADAD;
+    margin: 0px;
+}
+
+.exam-title {
+	margin: 0px;
+}
+
+.teacher-name {
+	margin: 0px;
+	font-size: 15px;
+}
+.posted {
+	font-size: 15px;
+    color: #757272;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+.status {
+	margin: 0px;
+    background-color: #F0F1F5;
+    display: inline-block;
+    padding-top: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 25px;
+    right: 150px;
 }
