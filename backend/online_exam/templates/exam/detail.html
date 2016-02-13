@@ -1,15 +1,45 @@
 {% extends 'layout/base.html' %}
-
+{% load static %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/exam-detail.css' %}">
+{% endblock %}
 {% block main_content %}
-    {{ exam.title }}
-    {{ exam.description }}
-
-    {% if request.user.is_teacher %}
-        <a href="{% url 'exams:questions:add' exam.id %}">add question</a>
-        <a href="{% url 'exams:questions:list' exam.id %}">all questions</a>
-    {% endif %}
-
-    {% if request.user.is_student %}
-        <a href="{% url 'exams:take' exam.id %}">Take Exam</a>
-    {% endif %}
+    <div class="content-wrap">
+        <div class="title-banner">
+            <div class="container">
+                <h3 style="text-align:center">{{ exam.title }}</h3>
+                <p class="teacher" style="text-align:center">Soal Oleh: {{ exam.user.get_full_name }}</p>
+                <div class="col-sm-4 col-sm-offset-5">
+                    <button class="btn btn-primary btn-exam"><a href="quest.html">Take Exam Now</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="exam-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-1">
+                        <div class="col-md-3 exam-card quest">
+                            <h4>Jumlah Soal</h4>
+                            <div class="quest-circle">
+                                <h4 style="margin-top: 20px;">{{ exam.question_set.count }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3 exam-card duration">
+                            <h4>Durasi</h4>
+                            <div class="quest-circle">
+                                <h4>{{ exam.get_duration_minutes }}</h4>
+                                <p>Menit</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 exam-card login.html level">
+                            <h4>Tingkat Kesulitan</h4>
+                            <div class="quest-circle level-circle">
+                                <p>{{ exam.get_difficulty_display }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

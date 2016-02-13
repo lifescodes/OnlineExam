@@ -40,7 +40,7 @@ class ExamListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         if not self.request.user.is_student():
-            return self.model.objects.filter(user=self.request.user)
+            return Exam.objects.filter(user=self.request.user)
         return super().get_queryset()
 
 

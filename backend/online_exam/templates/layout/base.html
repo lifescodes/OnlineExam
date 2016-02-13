@@ -16,9 +16,7 @@
         {% include 'layout/navbar.html' %}
     {% endblock %}
 
-    <div class="container">
-        {% block main_content %}{% endblock %}
-    </div>
+    {% block main_content %}{% endblock %}
 
     <script src="{% static 'libs/jquery-2.2.0.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/js/flat-ui.min.js"></script>

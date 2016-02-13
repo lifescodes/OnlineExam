@@ -33,6 +33,9 @@ class Exam(TimeStampedModel):
     def __str__(self):
         return self.title
 
+    def get_duration_minutes(self):
+        return self.duration.seconds // 60
+
     def save(self, *args, **kwargs):
         if not self.available_start:
             self.available_start = datetime.now()
