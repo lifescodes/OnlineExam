@@ -36,7 +36,7 @@ class ExamCreateView(LoginRequiredMixin, TeacherRequiredMixin, CreateView):
 class ExamListView(LoginRequiredMixin, ListView):
     template_name = 'exam/list.html'
     context_object_name = 'exams'
-    model = Exam
+    queryset = Exam.objects.all().select_related('user')
 
     def get_queryset(self):
         if not self.request.user.is_student():

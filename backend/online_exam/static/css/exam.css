@@ -25,6 +25,7 @@
 	border-right: 0px;
 	background-color: #EDEEF0;
 	width: 100%;
+	padding-top: 11px;
 }
 
 .my-filter-input:focus {
@@ -120,12 +121,14 @@
 	text-align: center;
 	font-size: 15px;
 	transition: all 0.2 ease-in-out;
+	text-decoration: none;
 }
 
 .take-exam:hover {
 	border: 2px solid #fff;
 	background-color: #fff;
 	color: #4A8BDA;
+	text-decoration: none;
 }
 
 .take-exam:focus {
