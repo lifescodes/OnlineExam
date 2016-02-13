@@ -15,3 +15,4 @@
 | 13 | 10/02/2016 | 14.00 | <li>mengintegraiskan halaman register/li>|
 | 14 | 11/02/2016 | 14.00 | <li>membuat proses register</li> |
 | 15 | 12/02/2016 | 16.00 | <li>mengintegrasikan template navbar, home, list exam </li> |
+| 16 | 13/02/2016 | 14.00 | <li>load data list exam ke halaman list exam baru </li><li>load data exam detail ke halaman exam detail baru </li> |
