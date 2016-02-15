@@ -15,7 +15,7 @@
     <script>
         var csrf = "{{ csrf_token }}";
         var exam_id = "{{ exam_id }}";
-        var selected_answer = [];
+        var url = "{% url 'exams:action' exam_id %}";
 
         var loadQuestion = function (num) {
             var url = "{% url 'exams:action' exam_id %}";
@@ -32,17 +32,28 @@
             loadQuestion(1);
         });
 
-        $(document).on('change', 'input[name=answer]', function (e) {
+        $(document).on('change', 'input[name=answer][type=radio]', function (e) {
             var t = $(this);
-            if (t.attr('type') == 'checkbox') {
-                if (t.prop('checked')) {
-                    selected_answer.push(answer_val);
-                } else {
-                    selected_answer.splice(selected_answer.indexOf(t.val()), 1);
-                }
-            }
-            if (t.attr('type') == 'radio') {
-                selected_answer = [t.val()];
+            var question_id = t.parents('.question-wrapper').attr('id');
+            var data = {
+                'choice': t.val(),
+                'question': question_id,
+                'answer': 1,
+                'csrfmiddlewaretoken': csrf
+            };
+
+            $.post(url, data, function (r) {
+                console.log(r);
+            });
+        });
+        $(document).on('change', 'input[name=answer][type=checkbox]', function (e) {
+            var t = $(this);
+            var answer = t.val();
+
+            if (t.prop('checked')) {
+                selected_answer.push(t.val());
+            } else {
+                selected_answer.splice(selected_answer.indexOf(t.val()), 1);
             }
         });
 

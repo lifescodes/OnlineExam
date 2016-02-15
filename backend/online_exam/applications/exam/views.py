@@ -5,9 +5,10 @@ from django.shortcuts import render
 from django.views.generic import View
 from vanilla import CreateView, DeleteView, ListView, DetailView, TemplateView
 
+from applications.core.functions import get_object_or_none
 from applications.core.views import LoginRequiredMixin, TeacherRequiredMixin, \
     StudentRequiredMixin
-from applications.quiz.models import Question
+from applications.quiz.models import Question, QuestionAnswerUser
 from .forms import ExamForm
 from .models import Exam
 
@@ -71,8 +72,8 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         exam = self.get_exam()
         if exam.available \
-                or (
-                        exam.available_start.now().date() <= datetime.now().date() <=
+                or (exam.available_start.now().date()
+                    <= datetime.now().date() <=
                     exam.available_end.now().date()):
             return super().get(request, *args, **kwargs)
         return HttpResponseRedirect(
@@ -91,17 +92,29 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
                                             exam__id=self.kwargs.get('pk'))
             answers = question.answers.all()
             return render(request, 'exam/question.html',
-                                      {'question': question,
-                                       'answers': answers})
+                          {'question': question,
+                           'answers': answers})
 
-    def post(self, pk):
+    def post(self, request, pk):
         if self.request.POST.get('skip'):
             # TODO: add skipped question to session
             pass
 
         if self.request.POST.get('answer'):
-            # TODO: save answered question to db
-            pass
+            question_id = request.POST.get('question')
+            choice = request.POST.get('choice')
+
+            user_answer = get_object_or_none(QuestionAnswerUser,
+                                             question_id=question_id,
+                                             choice=choice)
+            if user_answer:
+                user_answer.choice = choice
+            else:
+                QuestionAnswerUser.objects.create(question_id=question_id,
+                                                  choice=choice,
+                                                  user=request.user)
+
+            return HttpResponse('success')
 
         if self.request.POST.get('finish'):
             # TODO: finsih exam, delete session

@@ -9,8 +9,8 @@
             <div class="container">
                 <h3 style="text-align:center">{{ exam.title }}</h3>
                 <p class="teacher" style="text-align:center">Soal Oleh: {{ exam.user.get_full_name }}</p>
-                <div class="col-sm-4 col-sm-offset-5">
-                    <button class="btn btn-primary btn-exam"><a href="quest.html">Take Exam Now</a></button>
+                <div style="text-align: center;">
+                    <a class="btn btn-primary btn-exam" href="{% url 'exams:take' exam.id %}">Take Exam Now</a>
                 </div>
             </div>
         </div>
