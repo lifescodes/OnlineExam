@@ -2,7 +2,7 @@
     <p><span class="question-number">{{ question.position }}</span>. {{ question.text }}</p>
     {% for answer in answers %}
         <p>
-            <input name="answer"
+            <input name="answer" value="{{ answer.choice }}" answer-id="{{ answer.id }}"
                    type="{% if question.question_type == 1 %}radio{% else %}checkbox{% endif %}">
             {{ answer.text }}
         </p>

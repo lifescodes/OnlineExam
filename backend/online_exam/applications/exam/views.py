@@ -102,16 +102,17 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
 
         if self.request.POST.get('answer'):
             question_id = request.POST.get('question')
-            choice = request.POST.get('choice')
+            question_answer = request.POST.get('question_answer')
 
             user_answer = get_object_or_none(QuestionAnswerUser,
                                              question_id=question_id,
-                                             choice=choice)
+                                             user=request.user)
             if user_answer:
-                user_answer.choice = choice
+                user_answer.choice_id = question_answer
+                user_answer.save()
             else:
                 QuestionAnswerUser.objects.create(question_id=question_id,
-                                                  choice=choice,
+                                                  choice_id=question_answer,
                                                   user=request.user)
 
             return HttpResponse('success')

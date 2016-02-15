@@ -36,7 +36,7 @@
             var t = $(this);
             var question_id = t.parents('.question-wrapper').attr('id');
             var data = {
-                'choice': t.val(),
+                'question_answer': t.attr('answer-id'),
                 'question': question_id,
                 'answer': 1,
                 'csrfmiddlewaretoken': csrf
