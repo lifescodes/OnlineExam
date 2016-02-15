@@ -1,0 +1,50 @@
+body {
+  background-color: #EDEEF0;
+  font-family: nunitoMedium;
+}
+
+.my-nav {
+  background-color: #fff;
+}
+
+.content {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  margin-top: 70px;
+  border-radius: 5px;
+  padding: 10px 30px 30px 30px;
+}
+
+.judul {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.content i:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.nomer {
+  float: left;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+.input {
+  display: inline-block;
+  width: 90%;
+  margin-left: 4px;
+}
+
+.ans {
+  width: 45%;
+  display: inline-block;;
+}
+
+hr {
+  border-top: 2px solid #eee;
+}
