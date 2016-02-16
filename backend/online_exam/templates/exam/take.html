@@ -1,13 +1,84 @@
 {% extends 'layout/base.html' %}
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/quest.css' %}">
+{% endblock custom_css %}
 
 {% block main_content %}
-    <a href="#">Skip</a>
-
-    <div class="question-wrapper"></div>
-
-    <div>
-        <a href="#">Finish</a>
-        <a href="javascript:;" class="next-question">Next</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10" style="margin-bottom:40px">
+                <div class="content-wrap">
+                    <div class="progress my-progress">
+                        <div class="progress-bar custom-bar" style="width:30%"></div>
+                    </div>
+                    <div class="soal">
+                        <p><span>1. </span>Soalnya adalah ini, jawaban yang benar adalah?</p>
+                    </div>
+                    <div class="jawab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="select-ans"><span class="alpha">A</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dignissimos qui 
+                                laborum eaque natus, aperiam molestias quia nihil repudiandae expedita!</p>
+                                <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="select-ans"><span class="alpha">B</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dignissimos qui 
+                                laborum eaque natus, aperiam molestias quia nihil repudiandae expedita!</p>
+                                <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="select-ans"><span class="alpha">C</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dignissimos qui 
+                                laborum eaque natus, aperiam molestias quia nihil repudiandae expedita!</p>
+                                <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="select-ans"><span class="alpha">D</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dignissimos qui 
+                                laborum eaque natus, aperiam molestias quia nihil repudiandae expedita!</p>
+                                <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="select-ans"><span class="alpha">E</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dignissimos qui 
+                                laborum eaque natus, aperiam molestias quia nihil repudiandae expedita!</p>
+                                <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn btn-navi">Previous</button>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="page-of">
+                                <input type="text" placeholder="1">
+                                <p>/20</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-navi pull-right">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-top:100px">
+                <div class="example" data-timer="4000"></div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 

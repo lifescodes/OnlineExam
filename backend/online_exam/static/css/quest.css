@@ -1,0 +1,131 @@
+body {
+	font-family: nunitoMedium;
+	background-color: #EDEEF0;
+}
+
+.my-nav {
+	background-color: #fff;
+}
+
+.content-wrap {
+	background-color: #fff;
+	box-shadow: 1px 6px 7px -5px #000000;
+	width: 100%;
+	height: 100%;
+	margin-top: 83px;
+	border-radius: 10px;
+	padding: 25px 35px 15px 35px;
+}
+
+.content-wrap > .row {
+	padding: 35px;
+}
+
+.custom-bar {
+	background: #4A8BDA;
+	line-height: 12px;
+	box-shadow: none;
+}
+
+.soal {
+	margin-top: 50px;
+}
+
+.soal p{
+	font-size: 25px;
+}
+
+.alpha {
+	width: 35px;
+	height: 35px;
+	border: 2px solid #4A8BDA;
+	border-radius: 100px;
+	text-align: center;
+	float: left;
+	margin-top: 10px;
+}
+
+.jawab {
+	margin-top: 30px;
+}
+
+.jawab .row {
+	margin-bottom: 35px;
+}
+
+.choice {
+	margin-bottom: 10px;
+	height: 100px;
+}
+
+.select-ans {
+	height: 100%;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.select-ans:hover {
+	background-color: #C7E0FF;
+	cursor: pointer;
+}
+
+.select-ans:focus {
+	background-color: #4A8BDA;
+}
+.select-ans p {
+	margin-left: 55px;
+}
+
+.page-of {
+	text-align: center;
+	color: #40495E;
+}
+
+.page-of input {	
+	width: 30px;
+	text-align: center;
+	color: #40495E;
+}
+
+.page-of p{
+	display: inline-block;
+}
+
+.my-progress {
+	width: 80%;
+}
+
+.btn-navi {
+	width: 100px;
+	background-color: #4A8BDA;
+	color: #fff;
+	padding-top: 5px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.prev {
+	margin-left: 60px;
+}
+
+.next {
+	float: right;
+}
+
+.btn-navi:hover {
+	background-color: #629FE9;
+}
+
+.finish {
+	height: 300px;
+}
+
+.pilih p{
+	display: inline-block;
+	text-align: center;
+}
+
+.pilih a {
+	color: #629FE9;
+}
