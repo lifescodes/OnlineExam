@@ -72,8 +72,8 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         exam = self.get_exam()
         if exam.available \
-                or (exam.available_start.now().date()
-                    <= datetime.now().date() <=
+                or (exam.available_start.now().date() <=
+                    datetime.now().date() <=
                     exam.available_end.now().date()):
             return super().get(request, *args, **kwargs)
         return HttpResponseRedirect(
@@ -88,8 +88,7 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
     def get(self, request, pk):
         if self.request.GET.get('get_question'):
             position = self.request.GET.get('id')
-            question = Question.objects.get(position=position,
-                                            exam__id=self.kwargs.get('pk'))
+            question = self.get_question(position, self.kwargs.get('pk'))
             answers = question.answers.all()
             return render(request, 'exam/question.html',
                           {'question': question,
@@ -120,5 +119,8 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
         if self.request.POST.get('finish'):
             # TODO: finsih exam, delete session
             pass
+
+    def get_question(self, position, exam_id):
+        return Question.objects.get(position=position, exam__id=exam_id)
 
 # TODO:class ExamScoreView()
