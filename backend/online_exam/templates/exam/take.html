@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button class="btn btn-navi pull-right">Next</button>
+                            <button class="btn btn-navi skip pull-right next-skip">Skip</button>
                         </div>
                     </div>
                 </div>
@@ -39,58 +39,10 @@
 {% endblock %}
 
 {% block custom_js %}
-    <script>
+    <script type="text/javascript">
         var csrf = "{{ csrf_token }}";
         var exam_id = "{{ exam_id }}";
         var url = "{% url 'exams:action' exam_id %}";
-
-        var loadQuestion = function (num) {
-            var url = "{% url 'exams:action' exam_id %}";
-            var data = {
-                'num': num,
-                'get_question': 1
-            };
-            $.get(url, data, function (r) {
-                $('.question-wrapper').html(r);
-            });
-        };
-
-        $(document).ready(function () {
-            loadQuestion(1);
-        });
-
-        $(document).on('change', 'input[name=answer][type=radio]', function (e) {
-            var t = $(this);
-            var question_id = t.parents('.jawab').attr('question-id');
-            var data = {
-                'question_answer': t.attr('answer-id'),
-                'question': question_id,
-                'answer': 1,
-                'csrfmiddlewaretoken': csrf
-            };
-
-            $.post(url, data, function (r) {
-                console.log(r);
-            });
-        });
-        $(document).on('change', 'input[name=answer][type=checkbox]', function (e) {
-            var t = $(this);
-            var answer = t.val();
-
-            if (t.prop('checked')) {
-                selected_answer.push(t.val());
-            } else {
-                selected_answer.splice(selected_answer.indexOf(t.val()), 1);
-            }
-        });
-
-        $(document).on('click', 'a.next-question', function () {
-            var question_number = $('.question-number').text();
-            loadQuestion(parseInt(question_number)+1);
-        });
-
-        $(document).on('click', '.select-ans', function(e){
-            $(this).parent().find('input').click();
-        });
     </script>
+    <script type="text/javascript" src="{% static 'js/take-exam.js' %}"></script>
 {% endblock %}

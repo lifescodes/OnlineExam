@@ -104,6 +104,14 @@ body {
 	padding-bottom: 10px;
 }
 
+.btn-navi.skip {
+	background-color: #FF5252;
+}
+.btn-navi.skip:hover {
+	background-color: #E91E63;
+	color: #fff;
+}
+
 .prev {
 	margin-left: 60px;
 }
