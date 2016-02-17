@@ -218,6 +218,7 @@ hr {
 .teacher-name {
 	margin: 0px;
 	font-size: 15px;
+	float: left;
 }
 .posted {
 	font-size: 15px;
@@ -250,4 +251,8 @@ hr {
 .availablity {
 	width: 84px;
 	margin-top: 20px;
+}
+
+.skor a {
+
 }
