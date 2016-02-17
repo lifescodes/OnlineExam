@@ -65,8 +65,6 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['exam_id'] = self.kwargs.get('pk')
-        context['questions'] = Question.objects.filter(
-            exam__id=self.kwargs.get('pk')).prefetch_related('answers')
         return context
 
     def get(self, request, *args, **kwargs):
@@ -87,12 +85,13 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
 class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
     def get(self, request, pk):
         if self.request.GET.get('get_question'):
-            position = self.request.GET.get('id')
+            position = self.request.GET.get('num')
             question = self.get_question(position, self.kwargs.get('pk'))
             answers = question.answers.all()
+            sub_answers = [answers[i:i+2] for i in range(0, len(answers), 2)]
             return render(request, 'exam/question.html',
                           {'question': question,
-                           'answers': answers})
+                           'sub_answers': sub_answers})
 
     def post(self, request, pk):
         if self.request.POST.get('skip'):

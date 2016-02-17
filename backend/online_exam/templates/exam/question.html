@@ -1,10 +1,20 @@
-<div class="well well-sm question-wrapper" id="{{ question.id }}">
-    <p><span class="question-number">{{ question.position }}</span>. {{ question.text }}</p>
-    {% for answer in answers %}
-        <p>
-            <input name="answer" value="{{ answer.choice }}" answer-id="{{ answer.id }}"
-                   type="{% if question.question_type == 1 %}radio{% else %}checkbox{% endif %}">
-            {{ answer.text }}
-        </p>
+<div class="soal">
+    <p><span>{{ question.position }}. </span>{{ question.text }} {% if question.question_type == 2 %}[multiple]{% endif %}</p>
+</div>
+<div class="jawab" question-id="{{ question.id }}">
+    {% for answers in sub_answers %}
+    <div class="row">
+        {% for answer in answers %}
+        <div class="col-md-6">
+            <input class="answer" name="answer" value="{{ answer.choice }}" answer-id="{{ answer.id }}"
+               type="{% if question.question_type == 1 %}radio{% else %}checkbox{% endif %}" style="display: none">
+            <div class="select-ans">
+                <span class="alpha">{{ answer.choice }}</span>
+                <p>{{ answer.text }}</p>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     {% endfor %}
 </div>
