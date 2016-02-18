@@ -17,16 +17,16 @@
                     
                     <div class="row">
                         <div class="col-md-4">
-                            <button class="btn btn-navi">Previous</button>
+                            <button class="btn btn-navi previous-question">Previous</button>
                         </div>
                         <div class="col-md-4">
                             <div class="page-of">
-                                <input type="text" placeholder="1">
+                                <input name="current-question-num" class="current-question-num" type="text">
                                 <p>/20</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button class="btn btn-navi skip pull-right next-skip">Skip</button>
+                            <button class="btn btn-navi skip pull-right next-question">Skip</button>
                         </div>
                     </div>
                 </div>
@@ -43,6 +43,7 @@
         var csrf = "{{ csrf_token }}";
         var exam_id = "{{ exam_id }}";
         var url = "{% url 'exams:action' exam_id %}";
+        var skipped_number = [];
     </script>
     <script type="text/javascript" src="{% static 'js/take-exam.js' %}"></script>
 {% endblock %}
