@@ -22,6 +22,8 @@ var activate_next_btn = function () {
 }
 
 $(document).ready(function () {
+    // load last left question
+    // get last question number from the session
     loadQuestion(1);
 });
 
