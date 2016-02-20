@@ -16,3 +16,9 @@
 | 14 | 11/02/2016 | 14.00 | <li>membuat proses register</li> |
 | 15 | 12/02/2016 | 16.00 | <li>mengintegrasikan template navbar, home, list exam </li> |
 | 16 | 13/02/2016 | 14.00 | <li>load data list exam ke halaman list exam baru </li><li>load data exam detail ke halaman exam detail baru </li> |
+| 17 | 15/02/2016 | 10.00 | <li>membuat fungsi get object or none, menyimpan jawaban yg berbeda</li> |
+| 18 | 16/02/2016 | 14.00 | <li>load pertanyaan dengan fungsi, integrasi desain halaman take exam</li> |
+| 19 | 17/02/2016 | 14.00 | <li>membuat proses load pertanyaan menggunakan ajax, memindahkan javascript ke file yg berbeda</li> |
+| 20 | 18/02/2016 | 11.00 | <li>membuat proses load pertanyaan next, previous, sesuai nomer pertanyaan</li> |
+| 21 | 19/02/2016 | 14.00 | <li>mengintegrasikan desain halaman create exam</li> |
+| 22 | 20/02/2016 | 15.00 | <li>memperbaiki durasi exam, memperbaiki desain home page</li> |
