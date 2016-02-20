@@ -24,6 +24,7 @@ class ExamCreateView(LoginRequiredMixin, TeacherRequiredMixin, CreateView):
         return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
+        form.instance.duration = form.cleaned_data['duration'] * 60
         form.instance.user = self.request.user
         form.save()
         return super().form_valid(form)
