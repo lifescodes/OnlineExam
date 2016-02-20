@@ -6,13 +6,32 @@ hr {
 	height: 2px;
 }
 
-.btn {
-	padding-bottom: 12px;
+a {
+	color: #4A8BDA;
 }
 
-.btn:focus {
+a:hover {
+	color: #4A8BDA;
+}
+
+a:focus {
+	color: #4A8BDA;
+}
+
+.btn-change {
+	background-color: #4A8BDA ;
+	color: #fff ;
+	padding: 2px 8px 8px 8px;
+	border-radius: 5px;
+	font-size: 15px;
+	border: 2px solid #4A8BDA ;
+}
+
+.btn {
 	background-color: #fff;
-	border: 2px solid #4A8BDA;
+	color: #333;
+	font-size: 14px;
+	padding: 5px 8px 8px 8px;
 }
 
 .bg {
@@ -75,10 +94,6 @@ hr {
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=7, Direction=135, Color=#000000); /*IE 5.5-7*/
 }
 
-.exam-list p {
-
-	text-align: left !important;
-}
 
 .exam {
 	overflow: auto;
@@ -218,6 +233,7 @@ hr {
 .teacher-name {
 	margin: 0px;
 	font-size: 15px;
+	float: left;
 }
 .posted {
 	font-size: 15px;
@@ -231,14 +247,12 @@ hr {
 	margin: 0px;
     background-color: #F0F1F5;
     display: inline-block;
-    padding-top: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 2px 5px 5px 5px;
     font-size: 12px;
     border-radius: 3px;
     position: absolute;
-    bottom: 25px;
-    right: 150px;
+    bottom: 15px;
+		left: 20px;
 }
 
 .check {
@@ -250,4 +264,26 @@ hr {
 .availablity {
 	width: 84px;
 	margin-top: 20px;
+}
+
+.card-box {
+	width: 100%;
+	height: 150px;
+	margin-bottom: 10px;
+}
+
+.card-box-detail {
+	padding: 10px;
+	float: left;
+	width: 65%;
+	height: 100%;
+	background-color: #EDEEF0;
+}
+
+.card-box-skor {
+	text-align: center;
+	float: right;
+	width: 35%;
+	height: 100%;
+	background-color: #E6E6E6;
 }
