@@ -5,63 +5,134 @@
 {% endblock %}
 
 {% block main_content %}
-    <div class="container">
+<div class="container">
     <div class="col-md-12" style="margin-top: 10%">
-        <!-- user detail -->
         <div class="col-md-4">
             <div class="user-detail">
-                <img src="img/ichimatsu.jpg">
+                <img src="img/ichimatsu.jpg" >
                 <div class="user-detail-p">
-                    <p>Ichimatsu Matsuno</p>
-                    <p class="address">Student</p>
+                    <p>{{ request.user.display_name }}</p>
+                    <p class="address">{{ request.user.get_full_name }}</p>
                 </div>
                 <hr>
                 <div class="user-bio">
-                    <p>Finished Exam : <span>7</span></p>
-                    <p>Best Score : <span>90</span></p>
-                    <p>Joined at : <span>29 january 2016</span></p>
+                <p>Finished Exam : <span>7</span></p>
+                <p>Best Score : <span>90</span></p>
+                <p>Joined at : <span>29 january 2016</span></p>
                 </div>
                 <div class="btn-user-wrap">
-                    <button type="submit" class="btn btn-default btn-user"
-                            data-toggle="modal"
-                            data-target=".bs-example-modal-lg">View Detail
-                    </button>
-                    <button type="submit" class="btn btn-default btn-user"
-                            onclick="window.open('edit-user.html')"><a
-                            href="edit-user.html">Edit Profile</a></button>
+                    <button type="submit" class="btn btn-default btn-user" data-toggle="modal" data-target=".bs-example-modal-lg">View Detail</button>
+                    <a href="edit-user.html" class="btn btn-default btn-user">Edit Profile</a>
                 </div>
             </div>
+
+
         </div>
 
+        <!-- finished exams -->
         <div class="col-md-8">
             <div class="exam-list">
-                <button class="btn btn-success pull-right">Add Exam</button>
                 <p>{{ exams.count }} Exams</p>
                 <hr>
-
                 <div class="exam">
-                    {% if exams %}
                     {% for exam in exams %}
-                    <div class="exam-card">
-                        <div class="col-sm-8 card-detail">
-                            <p class="category">Android</p>
-                            <p class="exam-title">{{ exam.title }}</p>
-                            {% if exam.available %}
-                            <p class="status">Available</p>
-                            {% endif %}
-                        </div>
-                        <div class="col-sm-4 skor">
-                            <h4>Siswa</h4>
-                            <h1>75</h1>
+                    <div class="col-md-6">
+                        <div class="card-box">
+                            <div class="card-box-detail">
+                                <p class="category">Android</p>
+                                <p class="exam-title">{{ exam.title }}</p>
+                                <p style="font-size: 14px; margin-top: 25px;"><i class="fa fa-clock"></i> {{ exam.created|date:"d N Y" }}</p>
+                            </div>
+                            <div class="card-box-skor">
+                                <p>Siswa</p>
+                                <p>75</p>
+                                <a href="exam-detail.html">See Detail</a>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}
-                    {% else %}
-                        No exams, <a href="{% url 'exams:add' %}">create now.</a>
-                    {% endif %}
                 </div>
             </div>
         </div>
+
+        </div>
+</div>
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">User Detail</h4>
+          </div>
+          <div class="modal-body row">
+            <div class="col-md-4">
+                <img src="img/ichimatsu.jpg" >
+            </div>
+            <div class="col-md-2">
+                <p>Full Name: </p>
+                <p>Gender: </p>
+                <p>Age: </p>
+                <p>Address: </p>
+                <p>City: </p>
+                <p>Email: </p>
+                <p>Phone: </p>
+                <p>Joined at: </p>
+            </div>
+            <div class="col-md-4">
+                <p>Ichimatsu Matsuno</p>
+                <p>Male</p>
+                <p>18</p>
+                <p>Punie</p>
+                <p>Mataram</p>
+                <p>ichi@gmail.com</p>
+                <p>088970876</p>
+                <p>24 Januari 2016</p>
+            </div>
+          </div>
+            <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+      </div>
     </div>
+
+    <!-- modal-edit -->
+    <div class="modal fade bs-example-modal-lg-edit " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">User Detail</h4>
+          </div>
+          <div class="modal-body row">
+            <div class="col-md-4">
+                <img src="img/ichimatsu.jpg" >
+            </div>
+            <div class="col-md-2">
+                <p>Full Name: </p>
+                <p>Gender: </p>
+                <p>Age: </p>
+                <p>Address: </p>
+                <p>City: </p>
+                <p>Email: </p>
+                <p>Phone: </p>
+                <p>Joined at: </p>
+            </div>
+            <div class="col-md-4">
+                <p>Ichimatsu Matsuno</p>
+                <p>Male</p>
+                <p>18</p>
+                <p>Punie</p>
+                <p>Mataram</p>
+                <p>ichi@gmail.com</p>
+                <p>088970876</p>
+                <p>24 Januari 2016</p>
+            </div>
+          </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" >Save Changes</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+      </div>
     </div>
 {% endblock %}
