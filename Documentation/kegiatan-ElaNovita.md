@@ -24,3 +24,4 @@
 | 22| 18/02/16 | 10:00 wita | <li>memperbaiki halaman user, memperbaiki card-box(responsive)</li><li>memperbaiki halaman soal, membuat warning jika soal belum diselesaikan semuanya</li>|
 | 23| 19/02/16 | 07:00 wita | <li>memperbaiki struktur html dan memperbaiki hasil perubahannya</li>|
 | 24| 20/02/16 | 04:00 wita | <li>memperbaiki responsive desain untuk halaman user, membuat scrollable div dengan slimScroll jquery</li>|
+| 25| 20/02/16 | 16:00 wita | <li>Integrasi dengan countdown jquery timer</li>|
