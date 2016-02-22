@@ -51,6 +51,11 @@ class ExamDetailView(DetailView):
     model = Exam
     context_object_name = 'exam'
 
+    def get_template_names(self):
+        if self.request.user.is_teacher():
+            return ['exam/detail-teacher.html']
+        return super(ExamDetailView, self).get_template_names()
+
 
 class ExamDeleteView(LoginRequiredMixin, TeacherRequiredMixin, DeleteView):
     model = Exam

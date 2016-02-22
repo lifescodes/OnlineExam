@@ -1,0 +1,49 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/exam-detail.css' %}">
+{% endblock %}
+{% block main_content %}
+    <div class="content-wrap">
+        <div class="title-banner">
+            <div class="container">
+                <h3 style="text-align:center">{{ exam.title }}</h3>
+                
+                <div style="text-align: center;">
+                    <a class="btn btn-primary btn-exam" href="{% url 'exams:take' exam.id %}">Edit Soal</a>
+                </div>
+            </div>
+        </div>
+        <h4 style="text-align:center">Daftar Siswa Yang Mengikuti Ujian</h4>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-5">
+                <label for="">Urut Berdasarkan</label>
+                <select class="" name="">
+                    <option value="">Nama</option>
+                    <option value="">Nilai</option>
+                </select>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+                <table class="table" style="border:2px solid #DDDDDD">
+                    <thead class="head-table">
+                        <tr>
+                            <td>No</td>
+                            <td>Nama Siswa</td>
+                            <td>Skor</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for socre in exam.examscore_set.all %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ score.user.get_full_name }}</td>
+                            <td>{{ score.score }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
