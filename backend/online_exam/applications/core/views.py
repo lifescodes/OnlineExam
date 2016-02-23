@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
 from vanilla.views import FormView
 
-from applications.exam.models import Exam
+from applications.exam.models import Exam, ExamScore
 from applications.user.models import User, Profile
 from .forms import LoginForm
 
@@ -43,7 +43,9 @@ class HomeView(LoginRequiredMixin, TemplateView):
         user = self.request.user
         if user.is_teacher():
             return Exam.objects.filter(user=user)
-        return Exam.objects.all()
+        ids = ExamScore.objects.filter(user=user)\
+            .values_list('exam_id', flat=True)
+        return Exam.objects.filter(id__in=ids)
 
 
 class LoginView(FormView):
