@@ -18,4 +18,10 @@
 | 16| 11/02/16 | 11:00 wita | <li>mengedit form soal, menambah pilihan multiple answer</li>|
 | 17| 12/02/16 | 05:00 wita | <li>membuat halaman edit detail tugas</li>|
 | 18| 13/02/16 | 05:00 wita | <li>edit desain halaman detail tugas, membuat tabel daftar siswa yang mengikuti ujian</li>|
-| 19| 15/02/16 | 08:00 wita | <li>membuat halaman edit soal untuk guru</li>|
+| 19| 15/02/16 | 08:00 wita | <li>membuat halaman edit soal untuk guru</li><li>customize button dan link</li>|
+| 20| 16/02/16 | 11:00 wita | <li>membuat halaman about</li>|
+| 21| 17/02/16 | 06:00 wita | <li>memperbaiki halaman soal, membuat tanda untuk nomer soal yang dilewati</li><li>memperbaiki exam card, membuat link ke halaman profile dosen dan detail ujian</li>|
+| 22| 18/02/16 | 10:00 wita | <li>memperbaiki halaman user, memperbaiki card-box(responsive)</li><li>memperbaiki halaman soal, membuat warning jika soal belum diselesaikan semuanya</li>|
+| 23| 19/02/16 | 07:00 wita | <li>memperbaiki struktur html dan memperbaiki hasil perubahannya</li>|
+| 24| 20/02/16 | 04:00 wita | <li>memperbaiki responsive desain untuk halaman user, membuat scrollable div dengan slimScroll jquery</li>|
+| 25| 20/02/16 | 16:00 wita | <li>Integrasi dengan countdown jquery timer</li>|
