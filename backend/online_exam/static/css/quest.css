@@ -132,3 +132,26 @@ body {
 .pilih a {
 	color: #629FE9;
 }
+
+.skiped {
+	color: #34495e;
+	margin-top: 83px;
+	width: 100%;
+	height: 200px;
+	border-radius: 10px;
+}
+
+.skipped-number {
+	border: 2px solid #4A8BDA;
+	width: 35px;
+	height: 35px;
+	font-size: 15px;
+	text-align: center;
+    margin-right: 5px;
+	display: inline-block;
+	border-radius: 100px;
+}
+
+.timer {
+	margin-top: 100px;
+}

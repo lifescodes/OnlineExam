@@ -1,3 +1,18 @@
+var loadSkippedNumber = function() {
+    for (var i = 0; i < skipped_number.length; i++) {
+        var e = '<div class="skipped-number">'+skipped_number[i]+'</div>';
+        $('.skipped').append(e);
+    }
+};
+
+var addSkippedNumber = function(num) {
+    if (skipped_number.indexOf(num) == -1) {
+        skipped_number.push(num);
+        var e = '<div class="skipped-number">'+num+'</div>';
+        $('.skipped').append(e);
+    }
+}
+
 var loadQuestion = function (num, kwargs) {
     var data = {
         'num': num,
@@ -9,7 +24,16 @@ var loadQuestion = function (num, kwargs) {
     $.get(url, data, function (r) {
         $('.question-wrapper').html(r);
         $('.current-question-num').val(num);
-        console.log($(r).find('input[type=checkbox][checked]'));
+        
+        var is_answered = $(r).find('input[type=radio][checked]');
+        var btn = $('button.next-question');
+        if (is_answered.length) {
+            btn.text('Next');
+            btn.removeClass('skip');
+        } else {
+            btn.text('Skip');
+            btn.addClass('skip');
+        }
     });
 };
 
@@ -27,8 +51,8 @@ var activate_next_btn = function () {
 
 $(document).ready(function () {
     // TODO:load last left question
-    // TODO:get last question number from the session
     loadQuestion(1);
+    loadSkippedNumber();
 });
 
 $(document).on('change', 'input[name=answer][type=radio]', function (e) {
@@ -62,10 +86,11 @@ $(document).on('click', '.select-ans', function(e){
 $(document).on('click', '.next-question', function (e) {
     var t = $(this);
     var current_number = $('.current-question-num').val();
+    current_number = parseInt(current_number);
     var next_num = parseInt(current_number)+1;
     if (t.hasClass('skip')) {
-        skipped_number.push(current_number);
-        loadQuestion(next_num, {'skip': current_number})
+        loadQuestion(next_num, {'skip': current_number});
+        addSkippedNumber(current_number);
     } else {
         loadQuestion(next_num);
     }

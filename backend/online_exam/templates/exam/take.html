@@ -7,7 +7,7 @@
 {% block main_content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-10" style="margin-bottom:40px">
+            <div class="col-md-9" style="margin-bottom:40px">
                 <div class="content-wrap">
                     <div class="progress">
                         <div class="progress-bar custom-bar" style="width:30%"></div>
@@ -31,8 +31,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2" style="margin-top:100px">
-                <div class="example" data-timer="4000"></div>
+            <div class="col-md-3">
+                <div class="content-wrap">
+                <div class="timer">
+                    <div class="countdown"></div>
+                </div>
+                <div class="skipped">
+                    <p>Skipped Number</p>
+                </div>
+                <button style="margin-top: 50px" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Kumpulkan</button>
+                </div>
             </div>
         </div>
     </div>
@@ -43,9 +51,8 @@
         var csrf = "{{ csrf_token }}";
         var exam_id = "{{ exam_id }}";
         var url = "{% url 'exams:action' exam_id %}";
-        var skipped_number = [];
-        
         // TODO: load skipped number from session
+        var skipped_number = [];
         // TODO: load last question number from session
     </script>
     <script type="text/javascript" src="{% static 'js/take-exam.js' %}"></script>
