@@ -1,11 +1,15 @@
-var loadQuestion = function (num) {
+var loadQuestion = function (num, kwargs) {
     var data = {
         'num': num,
         'get_question': 1
     };
+    if (typeof kwargs !== 'undefined') {
+        data = jQuery.extend(data, kwargs);
+    }
     $.get(url, data, function (r) {
         $('.question-wrapper').html(r);
         $('.current-question-num').val(num);
+        console.log($(r).find('input[type=checkbox][checked]'));
     });
 };
 
@@ -22,8 +26,8 @@ var activate_next_btn = function () {
 }
 
 $(document).ready(function () {
-    // load last left question
-    // get last question number from the session
+    // TODO:load last left question
+    // TODO:get last question number from the session
     loadQuestion(1);
 });
 
@@ -43,12 +47,12 @@ $(document).on('change', 'input[name=answer][type=radio]', function (e) {
         }
     });
 
-    // need to check if current answered number in skipped_number
+    // TODO: need to check if current answered number in skipped_number
     // if so, delete current number from skipped_number
 });
 
 $(document).on('change', 'input[name=answer][type=checkbox]', function (e) {
-    // answer process with multiple answer
+    // TODO: answer process with multiple answer
 });
 
 $(document).on('click', '.select-ans', function(e){
@@ -61,6 +65,7 @@ $(document).on('click', '.next-question', function (e) {
     var next_num = parseInt(current_number)+1;
     if (t.hasClass('skip')) {
         skipped_number.push(current_number);
+        loadQuestion(next_num, {'skip': current_number})
     } else {
         loadQuestion(next_num);
     }

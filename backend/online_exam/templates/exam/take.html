@@ -44,6 +44,9 @@
         var exam_id = "{{ exam_id }}";
         var url = "{% url 'exams:action' exam_id %}";
         var skipped_number = [];
+        
+        // TODO: load skipped number from session
+        // TODO: load last question number from session
     </script>
     <script type="text/javascript" src="{% static 'js/take-exam.js' %}"></script>
 {% endblock %}

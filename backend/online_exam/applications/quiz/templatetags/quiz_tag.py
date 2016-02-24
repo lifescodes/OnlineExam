@@ -5,6 +5,6 @@ register = template.Library()
 
 
 @register.filter
-def is_answered(question_id, user_id):
+def is_answered(choice_id, user_id):
     return QuestionAnswerUser.objects.filter(
-        question_id=question_id, user_id=user_id).exists()
+        choice_id=choice_id, user_id=user_id).exists()

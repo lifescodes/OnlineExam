@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <input class="answer" name="answer" value="{{ answer.choice }}" answer-id="{{ answer.id }}"
                type="{% if question.question_type == 1 %}radio{% else %}checkbox{% endif %}"
-               {% if question.id|is_answered:request.user.id %}checked{% endif %}
+               {% if answer.id|is_answered:request.user.id %}checked{% endif %}
                style="display: none">
             <div class="select-ans">
                 <span class="alpha">{{ answer.choice }}</span>
