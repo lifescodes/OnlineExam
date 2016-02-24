@@ -2,6 +2,8 @@
 	background-color: #fff;
 }
 
+
+
 .content-wrap {
 	background-color: #EDEEF0;
 	width: 100%;
@@ -55,7 +57,7 @@
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	height: 100%;
-	width: 75%;
+	width: 65%;
 	float: left;
 	background-color: #fff;
 	padding: 12px 10px 10px 20px;
@@ -66,7 +68,7 @@
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	height: 100%;
-	width: 25%;
+	width: 35%;
 	background-color: #4A8BDA;
 	padding: 12px 10px 5px 10px;
 }
@@ -93,7 +95,7 @@
     border-radius: 3px;
     position: absolute;
     bottom: 25px;
-    right: 150px;
+    right: 180px;
 }
 
 .teacher-name {
@@ -141,4 +143,46 @@
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
+}
+
+.center {
+	width: 70%;
+	margin: auto;
+}
+
+@media all and (max-width:1200px) {
+	.center {
+		width: 90%;
+	}
+}
+
+@media all and (max-width:992px){
+	.filter-wrap {
+		margin-top: 80px;
+	}
+
+	.center {
+		width: 40%;
+	}
+
+}
+
+@media all and (max-width:800px) {
+	.center {
+		width: 50%;
+	}
+}
+
+
+
+@media all and (max-width:720px){
+	.center {
+		width: 60%;
+	}
+}
+
+@media all and (max-width:600px){
+	.center {
+		width: 80%;
+	}
 }
