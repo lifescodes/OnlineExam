@@ -1,6 +1,6 @@
 {% load quiz_tag %}
 <div class="soal">
-    <p><span>{{ question.position }}. </span>{{ question.text }} {% if question.question_type == 2 %}[multiple]{% endif %}</p>
+    <p><span class="question-num">{{ question.position }}</span>. {{ question.text }} {% if question.question_type == 2 %}[multiple]{% endif %}</p>
 </div>
 <div class="jawab" question-id="{{ question.id }}">
     {% for answers in sub_answers %}

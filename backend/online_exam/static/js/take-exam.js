@@ -8,8 +8,15 @@ var loadSkippedNumber = function() {
 var addSkippedNumber = function(num) {
     if (skipped_number.indexOf(num) == -1) {
         skipped_number.push(num);
-        var e = '<div class="skipped-number">'+num+'</div>';
+        var e = '<div class="skipped-number" id="'+num+'">'+num+'</div>';
         $('.skipped').append(e);
+    }
+}
+
+var removeSkippedNumber = function(num) {
+    if (skipped_number.indexOf(num) != -1) {
+        skipped_number.splice(skipped_number.indexOf(num), 1);
+        $('.skipped').find('#'+num).fadeOut(function(){ $(this).remove() });
     }
 }
 
@@ -68,6 +75,9 @@ $(document).on('change', 'input[name=answer][type=radio]', function (e) {
     $.post(url, data, function (r) {
         if (r == 'success') {
             activate_next_btn();
+            var current_number = $('.question-wrapper').find('.question-num').text();
+            console.log(current_number);
+            removeSkippedNumber(parseInt(current_number));
         }
     });
 
