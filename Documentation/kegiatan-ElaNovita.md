@@ -26,4 +26,5 @@
 | 24| 20/02/16 | 04:00 wita | <li>memperbaiki responsive desain untuk halaman user, membuat scrollable div dengan slimScroll jquery</li>|
 | 25| 22/02/16 | 16:00 wita | <li>Integrasi dengan countdown jquery timer</li>|
 | 26| 23/02/16 | 09:00 wita | <li>membuat halaman not found</li>|
-| 25| 24/02/16 | 07:00 wita | <li>memperbaiki responsive desain pada halaman exams</li>|
+| 27| 24/02/16 | 07:00 wita | <li>memperbaiki responsive desain pada halaman exams</li>|
+| 28| 25/02/16 | 06:00 wita | <li>Integrasi dengan jquery countdown timer baru</li>|
