@@ -51,8 +51,9 @@
         var csrf = "{{ csrf_token }}";
         var exam_id = "{{ exam_id }}";
         var url = "{% url 'exams:action' exam_id %}";
-        // TODO: load skipped number from session
-        var skipped_number = [];
+
+        var skipped_number = {{skipped_number|safe}};
+        skipped_number = skipped_number.map(parseInt);
         // TODO: load last question number from session
     </script>
     <script type="text/javascript" src="{% static 'js/take-exam.js' %}"></script>

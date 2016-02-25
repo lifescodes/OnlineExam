@@ -71,6 +71,8 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['exam_id'] = self.kwargs.get('pk')
+        if self.request.session['skipped_number']:
+            context['skipped_number'] = self.request.session['skipped_number']
         return context
 
     def get(self, request, *args, **kwargs):
@@ -93,13 +95,19 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
         if self.request.GET.get('get_question'):
             if self.request.GET.get('skip'):
                 skipped_number = self.request.GET.get('skip')
-                self.request.session['skipped_number'] = skipped_number
+
+                if 'skipped_number' in self.request.session:
+                    self.request.session['skipped_number'].append(
+                        skipped_number)
+                else:
+                    self.request.session['skipped_number'] = [skipped_number]
 
             position = self.request.GET.get('num')
+            if position in self.request.session['skipped_number']:
+                self.request.session['skipped_number'].remove(position)
             question = self.get_question(position, self.kwargs.get('pk'))
             answers = question.answers.all()
             sub_answers = [answers[i:i+2] for i in range(0, len(answers), 2)]
-            print(self.request.session)
             return render(request, 'exam/question.html',
                           {'question': question,
                            'sub_answers': sub_answers})
