@@ -111,3 +111,8 @@ $(document).on('keypress', '.current-question-num', function (e) {
         loadQuestion(num);
     }
 })
+
+$(document).on('click', '.skipped-number', function(e){
+    var num = $(this).text();
+    loadQuestion(num);
+});
