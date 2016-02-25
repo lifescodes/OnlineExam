@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="libs/Flat-Ui/css/flat-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="css/quest.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" href="libs/timer/jquery.countdown.timer.css">
 </head>
 <body>
 
@@ -70,9 +71,29 @@
 			</div>
 			<div class="col-md-2">
 				<div class="timer">
-						<div class="countdown">
-
+						<div id="counter">
+							<div id="counter_item1" class="counter_item">
+							<div class="front"></div>
+						<div class="digit digit0"></div>
 						</div>
+						<div id="counter_item2" class="counter_item">
+						<div class="front"></div>
+						<div class="digit digit0"></div>
+						</div>
+						<div id="counter_item3" class="counter_item">
+						<div class="front"></div>
+						<div class="digit digit_colon"></div>
+						</div>
+						<div id="counter_item4" class="counter_item">
+						<div class="front"></div>
+						<div class="digit digit0"></div>
+						</div>
+						<div id="counter_item5" class="counter_item">
+						<div class="front"></div>
+						<div class="digit digit0"></div>
+						</div>
+						</div>
+
 				</div>
 				<div class="skiped">
 					<p>Skipped Number</p>
@@ -103,18 +124,13 @@
 
 	<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
 	<script type="text/javascript" src="libs/bs/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="libs/timer/jquery.countdown360.js"></script>
-	<script type="text/javascript">
-		$(".countdown").countdown360({
-			radius : 60,
-			seconds: 100,
-			fontColor: '#fff',
-			autostart : false,
-			onComplete:function(){
-				console.log('done')
-			}
-		}).start();
+	<script type="text/javascript" src="libs/timer/jquery.timeout.interval.idle.js"></script>
+	<script type="text/javascript" src="libs/timer/jquery.countdown.counter.js">
 
 	</script>
+	<script type="text/javascript">
+		CounterInit(2400);
+	</script>
+
 </body>
 </html>

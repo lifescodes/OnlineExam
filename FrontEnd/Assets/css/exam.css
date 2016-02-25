@@ -93,9 +93,6 @@
     padding-right: 5px;
     font-size: 12px;
     border-radius: 3px;
-    position: absolute;
-    bottom: 25px;
-    right: 180px;
 }
 
 .teacher-name {
@@ -105,9 +102,8 @@
 
 .posted {
 	font-size: 15px;
-    color: #757272;
-    position: absolute;
-    bottom: 10px;
+  color: #757272;
+	margin-bottom: 0;
 }
 
 .level {

@@ -1,6 +1,6 @@
 body {
 	font-family: nunitoMedium;
-	background-color: #EDEEF0;
+	background-color: #EDEEF0 !important;
 }
 
 .my-nav {
