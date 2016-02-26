@@ -22,3 +22,8 @@
 | 20 | 18/02/2016 | 11.00 | <li>membuat proses load pertanyaan next, previous, sesuai nomer pertanyaan</li> |
 | 21 | 19/02/2016 | 14.00 | <li>mengintegrasikan desain halaman create exam</li> |
 | 22 | 20/02/2016 | 15.00 | <li>memperbaiki durasi exam, memperbaiki desain home page</li> |
+| 23 | 22/02/2016 | 15.00 | <li>memperbaiki tampilan exam detail pada teacher</li> |
+| 24 | 23/02/2016 | 15.00 | <li>membuat proses pengecekan sudah dijawab atau belum</li> |
+| 25 | 24/02/2016 | 15.00 | <li>membuat proses menyumpan nomor yg diskip</li> |
+| 26 | 25/02/2016 | 18.00 | <li>menampilkan soal dari nomor yg diskip</li><li>menghapus skip nomor jika sudah menjawab</li> |
+| 27 | 26/02/2016 | 17.00 | <li>mengevaluasi hasil KKP</li> |
