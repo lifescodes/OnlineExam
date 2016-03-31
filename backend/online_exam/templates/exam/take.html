@@ -52,8 +52,15 @@
         var exam_id = "{{ exam_id }}";
         var url = "{% url 'exams:action' exam_id %}";
 
-        var skipped_number = {{skipped_number|safe}};
-        skipped_number = skipped_number.map(parseInt);
+        {% if skipped_number %}
+            var skipped_number = {{skipped_number|safe}};
+        {% else %}
+            var skipped_number = '';
+        {% endif %}
+
+        if (skipped_number) {
+            skipped_number = skipped_number.map(parseInt);
+        }
         // TODO: load last question number from session
     </script>
     <script type="text/javascript" src="{% static 'js/take-exam.js' %}"></script>
