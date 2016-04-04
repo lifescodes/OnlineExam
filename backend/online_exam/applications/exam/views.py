@@ -68,15 +68,22 @@ class ExamDeleteView(LoginRequiredMixin, TeacherRequiredMixin, DeleteView):
 class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
     template_name = 'exam/take.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        self.exam = self.get_exam()
+        return super(TakeExamView, self).dispatch(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['exam_id'] = self.kwargs.get('pk')
-        if self.request.session.get('skipped_number'):
-            context['skipped_number'] = self.request.session.get('skipped_number')
+        context['exam'] = self.exam
+
+        skipped_number = self.request.session.get('skipped_number', None)
+        if skipped_number:
+            context['skipped_number'] = skipped_number
+
         return context
 
     def get(self, request, *args, **kwargs):
-        exam = self.get_exam()
+        exam = self.exam
         if exam.available \
                 or (exam.available_start.now().date() <=
                     datetime.now().date() <=
@@ -92,20 +99,22 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
 
 class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
     def get(self, request, pk):
+        skipped_number_session = self.request.session.get(
+            'skipped_number', None)
+
         if self.request.GET.get('get_question'):
             if self.request.GET.get('skip'):
                 skipped_number = self.request.GET.get('skip')
 
-                if 'skipped_number' in self.request.session:
+                if skipped_number_session:
                     self.request.session['skipped_number'].append(
                         skipped_number)
                 else:
                     self.request.session['skipped_number'] = [skipped_number]
 
             position = self.request.GET.get('num')
-            if self.request.session.get('skipped_number'):
-                if position in self.request.session.get('skipped_number'):
-                    self.request.session['skipped_number'].remove(position)
+            if skipped_number_session and position in skipped_number_session:
+                self.request.session['skipped_number'].remove(position)
             question = self.get_question(position, self.kwargs.get('pk'))
             answers = question.answers.all()
             sub_answers = [answers[i:i+2] for i in range(0, len(answers), 2)]

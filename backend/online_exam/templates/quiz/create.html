@@ -1,6 +1,7 @@
 {% extends 'layout/base.html' %}
 
 {% block main_content %}
+    <div class="container">
     <form action="{% url 'exams:questions:create' exam_id %}" method="post" class="form-horizontal question-form" role="form"> {% csrf_token %}
         <input type="hidden" value="{{ exam_id }}" name="exam_id">
         <input class="form-control" type="text" name="position" value="{{ current_number }}">
@@ -39,14 +40,10 @@
                 <input type="text" name="answer-choice-5" value="E" readonly>
                 <input type="text" class="form-control" name="answer-5" required>
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     </form>
+    </div>
 {% endblock %}
 
 {% block custom_js %}

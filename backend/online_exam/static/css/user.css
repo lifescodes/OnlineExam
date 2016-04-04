@@ -1,7 +1,3 @@
-body {
-	font-family: nunitoMedium;
-}
-
 hr {
 	height: 2px;
 }
@@ -41,9 +37,7 @@ a:focus {
 	background-color: #fff !important;
 }
 .user-detail {
-	position: fixed;
 	background-color: #fff;
-	width: 25%;
 	height: 500px;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=7, Direction=99, Color=#000000)";/*IE 8*/
 	-moz-box-shadow: 1px 6px 7px -5px #000000;/*FF 3.5+*/
@@ -55,10 +49,13 @@ a:focus {
 .user-detail img {
 	width: 150px;
 	height: 150px;
-	margin-left: 80px;
 	margin-top: 30px;
 	border-radius: 100px;
 	border: 2px solid #EDEEF0;
+}
+
+.user-detail .pp-wrapper {
+	text-align: center;
 }
 
 .user-detail-p {

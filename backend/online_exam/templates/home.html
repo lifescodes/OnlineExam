@@ -9,7 +9,9 @@
     <div class="col-md-12" style="margin-top: 10%">
         <div class="col-md-4">
             <div class="user-detail">
-                <img src="img/ichimatsu.jpg" >
+                <div class="pp-wrapper">
+                    <img src="img/ichimatsu.jpg" >
+                </div>
                 <div class="user-detail-p">
                     <p>{{ request.user.display_name }}</p>
                     <p class="address">{{ request.user.get_full_name }}</p>
@@ -46,7 +48,7 @@
                             <div class="card-box-skor">
                                 <p>Siswa</p>
                                 <p>75</p>
-                                <a href="exam-detail.html">See Detail</a>
+                                <a href="{% url 'exams:detail' exam.id %}">See Detail</a>
                             </div>
                         </div>
                     </div>
