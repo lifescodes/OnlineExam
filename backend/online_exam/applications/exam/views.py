@@ -99,8 +99,7 @@ class TakeExamView(LoginRequiredMixin, StudentRequiredMixin, TemplateView):
 
 class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
     def get(self, request, pk):
-        skipped_number_session = self.request.session.get(
-            'skipped_number', None)
+        skipped_number_session = self.get_skipped_number_session()
 
         if self.request.GET.get('get_question'):
             if self.request.GET.get('skip'):
@@ -129,6 +128,7 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
 
         if self.request.POST.get('answer'):
             question_id = request.POST.get('question')
+
             question_answer = request.POST.get('question_answer')
 
             user_answer = get_object_or_none(QuestionAnswerUser,
@@ -142,6 +142,11 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
                                                   choice_id=question_answer,
                                                   user=request.user)
 
+            position = self.request.POST.get('num')
+            skipped_number_session = self.get_skipped_number_session()
+            if skipped_number_session and position in skipped_number_session:
+                self.request.session['skipped_number'].remove(position)
+
             return HttpResponse('success')
 
         if self.request.POST.get('finish'):
@@ -150,5 +155,8 @@ class ExamActionView(LoginRequiredMixin, StudentRequiredMixin, View):
 
     def get_question(self, position, exam_id):
         return Question.objects.get(position=position, exam__id=exam_id)
+
+    def get_skipped_number_session(self):
+        return self.request.session.get('skipped_number', None)
 
 # TODO:class ExamScoreView()
